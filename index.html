@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
+ 
 /* ═══════════════════════════════════════════════
    RESET
 ═══════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
+ 
 :root {
   --bg:     #03040c;
   --bg1:    #060919;
@@ -38,7 +38,7 @@ html { scroll-behavior: smooth; }
   --radius: 6px;
   --max-w:  1120px;
 }
-
+ 
 body {
   background:
     radial-gradient(ellipse at 70% 0%, rgba(60,30,160,0.25) 0%, transparent 50%),
@@ -50,7 +50,7 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
 }
-
+ 
 /* ═══════════════════════════════════════════════
    CANVAS BACKGROUND
 ═══════════════════════════════════════════════ */
@@ -131,7 +131,7 @@ body {
 }
   50%     { opacity:0.6; transform:translateX(-48%) scaleX(1.08); }
 }
-
+ 
 /* ═══════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════ */
@@ -199,7 +199,7 @@ body {
 }
 .mobile-nav a:hover { color: var(--accent); }
 .mobile-nav.open { display: flex; }
-
+ 
 /* ═══════════════════════════════════════════════
    SHARED
 ═══════════════════════════════════════════════ */
@@ -222,13 +222,13 @@ section { position: relative; z-index: 2; background: transparent; }
   display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem;
 }
 .section-tag::after { content:''; width:2.2rem; height:1px; background:var(--accent); }
-
+ 
 h2.sec-heading {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 600; line-height: 1.1;
 }
 h2.sec-heading em { font-style: italic; color: var(--acc2); }
-
+ 
 /* SCROLL REVEAL */
 .reveal { opacity:1; transform:none; }
 .reveal.animate { opacity:0; transform:translateY(26px); transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
@@ -237,7 +237,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .reveal.animate.in { opacity:1; transform:none; }
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
 .d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
-
+ 
 /* ═══════════════════════════════════════════════
    HOME
 ═══════════════════════════════════════════════ */
@@ -265,7 +265,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   animation: livepulse 2.2s ease infinite;
 }
 @keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.25;transform:scale(1.6)}}
-
+ 
 .home-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(3.2rem, 6.5vw, 6.2rem);
@@ -304,7 +304,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .btn-fill:hover { background: transparent; color: var(--accent); }
 .btn-ghost { background: transparent; color: var(--muted2); border: 1px solid var(--border2); }
 .btn-ghost:hover { color: var(--text); border-color: rgba(216,226,245,0.3); }
-
+ 
 .home-stats { display: flex; gap: 2.2rem; padding-top: 2.4rem; border-top: 1px solid var(--border); }
 .hs-num {
   font-family: 'Cormorant Garamond', serif;
@@ -316,7 +316,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--muted); margin-top: 0.2rem;
 }
-
+ 
 /* PHOTO */
 .photo-col { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
 .photo-frame {
@@ -335,7 +335,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   font-size: 0.6rem; letter-spacing: 0.1em;
   color: var(--muted2); display: flex; align-items: center; gap: 0.4rem;
 }
-
+ 
 /* ═══════════════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════════════ */
@@ -393,7 +393,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 }
 .about-body p { font-size: 0.94rem; line-height: 1.9; color: var(--muted2); margin-bottom: 1rem; }
 .about-body p strong { color: var(--text); font-weight: 500; }
-
+ 
 /* ═══════════════════════════════════════════════
    SKILLS
 ═══════════════════════════════════════════════ */
@@ -424,7 +424,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   font-family:'JetBrains Mono',monospace;
   font-size:0.58rem; letter-spacing:0.05em; color:var(--muted2);
 }
-
+ 
 /* LANGUAGES */
 .lang-section { margin-top: 2.5rem; }
 .lang-section-title {
@@ -448,13 +448,13 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .lf-native { background: var(--acc3); }
 .lf-c1    { background: var(--accent); }
 .lf-b1    { background: var(--gold); }
-
+ 
 /* ═══════════════════════════════════════════════
    DEV PROJECTS
 ═══════════════════════════════════════════════ */
 #devwork { background: var(--bg1); }
-
-
+ 
+ 
 /* Browser mockup */
 .browser-shell { background: var(--bg3); }
 .browser-bar {
@@ -474,7 +474,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .browser-content {
   aspect-ratio: 16/7.5; overflow: hidden; position: relative;
 }
-
+ 
 /* Car transporter illustrated mockup */
 .ct-mock {
   width:100%; height:100%;
@@ -515,7 +515,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .ct-car-model { font-size:0.65rem; font-weight:500; color:#c8d8f5; margin-bottom:0.15rem; }
 .ct-car-info { font-family:'JetBrains Mono',monospace; font-size:0.54rem; color:rgba(200,216,245,0.4); }
 .ct-price { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:#7aaaee; float:right; }
-
+ 
 .feat-body { padding: 1.6rem 1.8rem; }
 .feat-row { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
 .feat-info { flex:1; }
@@ -539,24 +539,24 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   display:inline-flex; align-items:center; gap:0.35rem; transition:gap 0.3s;
 }
 .feat-link:hover { gap:0.6rem; }
-
+ 
 /* Other projects grid */
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 .proj-link {
   font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.1em;
   text-transform:uppercase; color:var(--accent); text-decoration:none;
   display:inline-flex; align-items:center; gap:0.3rem; transition:gap 0.3s;
 }
 .proj-link:hover { gap:0.55rem; }
-
+ 
 /* ═══════════════════════════════════════════════
    PM WORK
 ═══════════════════════════════════════════════ */
@@ -637,7 +637,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
   transition: border-color 0.3s;
 }
 .artifact:hover { border-color: var(--border2); color: var(--text); }
-
+ 
 /* ═══════════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════════ */
@@ -682,7 +682,7 @@ h2.sec-heading em { font-style: italic; color: var(--acc2); }
 .fg input:focus, .fg textarea:focus { border-color: rgba(90,141,232,0.45); }
 .fg input::placeholder, .fg textarea::placeholder { color:var(--muted); }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-
+ 
 /* ═══════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════ */
@@ -701,7 +701,7 @@ footer {
   text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.3s;
 }
 .footer-links a:hover { color:var(--text); }
-
+ 
 /* ═══════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════ */
@@ -742,9 +742,9 @@ footer {
 @media(min-width:1400px){
   :root { --max-w:1240px; }
 }
-
-
-
+ 
+ 
+ 
 /* ═══════════════════════════════════════════════
    FEATURED PROJECTS GRID
 ═══════════════════════════════════════════════ */
@@ -752,7 +752,7 @@ footer {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1.5rem; margin-top: 2.5rem;
 }
-
+ 
 .fp-card {
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
@@ -764,7 +764,7 @@ a.fp-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
-
+ 
 /* Browser chrome */
 .fp-browser { background: var(--bg3); }
 .fp-bar {
@@ -788,10 +788,10 @@ a.fp-card:hover {
   color:var(--acc3); flex-shrink:0;
 }
 .fp-wip { color:var(--gold); }
-
+ 
 /* Screen area */
 .fp-screen { aspect-ratio:16/8; overflow:hidden; position:relative; }
-
+ 
 /* CAR TRANSPORTER SCREEN */
 .ct-screen { background:linear-gradient(145deg,#07091a 0%,#0b1124 50%,#08101e 100%); display:flex; flex-direction:column; }
 .cts-nav { background:rgba(5,7,18,0.98); padding:0.5rem 1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.04); flex-shrink:0; }
@@ -816,7 +816,7 @@ a.fp-card:hover {
 .cts-model { font-size:0.6rem; font-weight:500; color:#c8d8f5; }
 .cts-price { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:#7aaaee; }
 .cts-car-info { font-family:'JetBrains Mono',monospace; font-size:0.5rem; color:rgba(200,216,245,0.35); }
-
+ 
 /* LMS SCREEN */
 .lms-screen { background:#06080f; display:flex; }
 .lms-sidebar { width:110px; flex-shrink:0; background:rgba(8,10,20,0.98); border-right:1px solid rgba(255,255,255,0.05); padding:0.7rem 0.5rem; display:flex; flex-direction:column; gap:0.5rem; }
@@ -845,7 +845,7 @@ a.fp-card:hover {
 .lms-course-prog { display:flex; align-items:center; gap:0.4rem; }
 .lms-prog-bar { flex:1; height:3px; background:rgba(255,255,255,0.06); border-radius:1px; overflow:hidden; }
 .lms-course-prog span { font-family:'JetBrains Mono',monospace; font-size:0.5rem; color:rgba(216,226,245,0.4); }
-
+ 
 /* Project info area */
 .fp-info { padding:1.4rem 1.6rem; }
 .fp-top-row { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:0.5rem; }
@@ -860,7 +860,7 @@ a.fp-card:hover .fp-arrow { color:var(--accent); transform:translate(3px,-3px); 
 .fp-badge.pm { background:rgba(154,109,220,0.09); color:var(--acc2); border:1px solid rgba(154,109,220,0.2); }
 .fp-title { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; }
 .fp-desc { font-size:0.82rem; line-height:1.72; color:var(--muted2); margin-bottom:0.9rem; }
-
+ 
 @media(max-width:860px) {
   .featured-grid { grid-template-columns:1fr; }
   .cts-cards { display:none; }
@@ -870,7 +870,7 @@ a.fp-card:hover .fp-arrow { color:var(--accent); transform:translate(3px,-3px); 
   .lms-sidebar { display:none; }
   .fp-info { padding:1.1rem; }
 }
-
+ 
 /* ═══════════════════════════════════════════════
    EXPERIENCE & EDUCATION
 ═══════════════════════════════════════════════ */
@@ -885,7 +885,7 @@ a.fp-card:hover .fp-arrow { color:var(--accent); transform:translate(3px,-3px); 
   display: flex; align-items: center; gap: 0.5rem;
 }
 .col-label svg { color: var(--muted); flex-shrink: 0; }
-
+ 
 /* Timeline */
 .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
 .timeline::before {
@@ -958,14 +958,14 @@ a.fp-card:hover .fp-arrow { color:var(--accent); transform:translate(3px,-3px); 
   background: rgba(90,141,232,0.08); color: var(--accent);
   border-color: rgba(90,141,232,0.2);
 }
-
+ 
 @media(max-width:860px){
   .exp-edu-grid { grid-template-columns: 1fr; gap: 3rem; }
   .tl-header { flex-direction: column; gap: 0.3rem; }
   .tl-date-col { text-align: left; }
 }
-
-
+ 
+ 
 /* ═══════ CLICK / INTERACTION FIXES ═══════ */
 .site-nav, .site-nav * { pointer-events: auto; }
 .btn { pointer-events: auto; position: relative; z-index: 2; }
@@ -981,7 +981,7 @@ section { pointer-events: auto; }
   background:linear-gradient(90deg,var(--accent),var(--acc2));
   transition:width 0.1s linear; width:0%;
 }
-
+ 
 /* ═══════════════════════════════════════════════
    SEE MORE PROJECTS
 ═══════════════════════════════════════════════ */
@@ -998,19 +998,19 @@ section { pointer-events: auto; }
 .see-more-btn.open { color: var(--accent); border-color: var(--accent); }
 .see-more-btn svg { transition: transform 0.3s; }
 .see-more-btn.open svg { transform: rotate(180deg); }
-
+ 
 .more-projects-wrap {
   max-height: 0; overflow: hidden;
   transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
   opacity: 0; pointer-events: none;
 }
 .more-projects-wrap.open { max-height: 700px; opacity: 1; pointer-events: all; }
-
+ 
 .more-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1rem; padding-top: 1.5rem;
 }
-
+ 
 .mp-card {
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 1.3rem;
@@ -1037,10 +1037,10 @@ section { pointer-events: auto; }
 .mp-card:hover .mp-arrow { color: var(--accent); transform: translate(2px,-2px); }
 .mp-desc { font-size: 0.8rem; line-height: 1.68; color: var(--muted2); margin-bottom: 0.75rem; }
 .mp-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-
+ 
 @media(max-width:640px) { .more-grid { grid-template-columns: 1fr; } }
-
-
+ 
+ 
 /* Car Transporter card - ensure fully clickable */
 a.fp-card[href*="netlify"] {
   pointer-events: all !important;
@@ -1050,8 +1050,8 @@ a.fp-card[href*="netlify"] {
 a.fp-card[href*="netlify"] * {
   pointer-events: none !important;
 }
-
-
+ 
+ 
 /* Section dividers — colored accent lines */
 #about::before    { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(90,141,232,0.5), transparent); }
 #skills::before   { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(154,109,220,0.5), transparent); }
@@ -1059,18 +1059,43 @@ a.fp-card[href*="netlify"] * {
 #devwork::before  { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(90,141,232,0.4), transparent); }
 #pmwork::before   { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(154,109,220,0.5), transparent); }
 #contact::before  { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(61,184,124,0.4), transparent); }
-
-
+ 
+ 
 /* Ensure all project cards are clickable */
 a.mp-card { pointer-events: all !important; cursor: pointer !important; }
 a.mp-card * { pointer-events: none !important; }
 .fp-card[onclick] { pointer-events: all !important; cursor: pointer !important; }
 .more-projects-wrap a { pointer-events: all !important; }
-
+ 
+ 
+/* ═══ CONTACT MODAL ═══ */
+.c-modal-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(3,4,12,0.82); backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.c-modal-overlay.open { opacity: 1; pointer-events: all; }
+.c-modal {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 2.5rem 2.8rem; max-width: 420px; width: 90%;
+  text-align: center; position: relative;
+  transform: translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.c-modal-overlay.open .c-modal { transform: translateY(0); }
+.c-modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 4px; transition: color 0.2s;
+}
+.c-modal-close:hover { color: var(--text); }
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- Canvas -->
 <canvas id="bg-canvas"></canvas>
 <div class="nebula nb1"></div>
@@ -1079,7 +1104,7 @@ a.mp-card * { pointer-events: none !important; }
 <div class="nebula nb4"></div>
 <div class="nebula nb5"></div>
 <div class="progress-bar" id="prog"></div>
-
+ 
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="site-nav" id="sitenav">
   <a class="nav-logo" href="#home">
@@ -1108,7 +1133,7 @@ a.mp-card * { pointer-events: none !important; }
   <a href="#pmwork" onclick="closeMobileNav();var t=document.getElementById('pmwork');if(t){t.scrollIntoView({behavior:'smooth'});}return false;">PM Work</a>
   <a href="#contact" onclick="closeMobileNav();var t=document.getElementById('contact');if(t){t.scrollIntoView({behavior:'smooth'});}return false;">Contact</a>
 </div>
-
+ 
 <!-- ═══════════ HOME ═══════════ -->
 <section id="home">
   <div class="home-inner">
@@ -1151,7 +1176,7 @@ a.mp-card * { pointer-events: none !important; }
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about" class="sec-pad">
   <div class="container">
@@ -1198,7 +1223,7 @@ a.mp-card * { pointer-events: none !important; }
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════ SKILLS ═══════════ -->
 <section id="skills" class="sec-pad">
   <div class="container">
@@ -1279,16 +1304,16 @@ a.mp-card * { pointer-events: none !important; }
     </div>
   </div>
 </section>
-
-
+ 
+ 
 <!-- ═══════════ EXPERIENCE & EDUCATION ═══════════ -->
 <section id="experience" class="sec-pad" style="background:var(--bg1);">
   <div class="container">
     <div class="section-tag reveal">04 / Experience &amp; Education</div>
     <h2 class="sec-heading reveal d1">Where I've <em>grown</em></h2>
-
+ 
     <div class="exp-edu-grid">
-
+ 
       <!-- LEFT: EXPERIENCE -->
       <div>
         <div class="col-label reveal">
@@ -1298,7 +1323,7 @@ a.mp-card * { pointer-events: none !important; }
           </svg>
           Work Experience
         </div>
-
+ 
         <div class="timeline reveal d1">
           <div class="tl-item current">
             <div class="tl-dot"></div>
@@ -1328,7 +1353,7 @@ a.mp-card * { pointer-events: none !important; }
           </div>
         </div>
       </div>
-
+ 
       <!-- RIGHT: EDUCATION + CERTIFICATIONS -->
       <div>
         <div class="col-label reveal">
@@ -1339,9 +1364,9 @@ a.mp-card * { pointer-events: none !important; }
           </svg>
           Education &amp; Certifications
         </div>
-
+ 
         <div class="timeline reveal d2">
-
+ 
           <!-- PM Cert -->
           <div class="tl-item cert">
             <div class="tl-dot acc2"></div>
@@ -1364,7 +1389,7 @@ a.mp-card * { pointer-events: none !important; }
               </div>
             </div>
           </div>
-
+ 
           <!-- Frontend Diploma -->
           <div class="tl-item cert reveal d3">
             <div class="tl-dot acc1"></div>
@@ -1387,7 +1412,7 @@ a.mp-card * { pointer-events: none !important; }
               </div>
             </div>
           </div>
-
+ 
           <!-- University -->
           <div class="tl-item reveal d4">
             <div class="tl-dot gold"></div>
@@ -1404,22 +1429,22 @@ a.mp-card * { pointer-events: none !important; }
               <p class="tl-desc">Five-year undergraduate Law programme. Developed strong analytical, research and written communication skills — a foundation that now directly informs structured product thinking and documentation.</p>
             </div>
           </div>
-
+ 
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════ DEV WORK ═══════════ -->
 <section id="devwork" class="sec-pad" style="background:var(--bg1);">
   <div class="container">
     <div class="section-tag reveal">05 / Dev Work</div>
     <h2 class="sec-heading reveal d1">Featured <em>projects</em></h2>
-
+ 
     <div class="featured-grid">
-
+ 
       <!-- ── PROJECT 1: CAR TRANSPORTER ── -->
       <div class="fp-card reveal d1" style="cursor:pointer;" onclick="window.open('https://vermillion-nougat-fa01eb.netlify.app/','_blank');return false;">
         <div class="fp-browser">
@@ -1503,7 +1528,7 @@ a.mp-card * { pointer-events: none !important; }
           </div>
         </div>
       </div>
-
+ 
       <!-- ── PROJECT 2: LMS PRO ── -->
       <div class="fp-card reveal d2" style="cursor:default;">
         <div class="fp-browser">
@@ -1589,12 +1614,12 @@ a.mp-card * { pointer-events: none !important; }
           </div>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
-
+ 
+ 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMoreProjects() {
   var wrap = document.getElementById('moreProjectsWrap');
@@ -1614,7 +1639,7 @@ function toggleMoreProjects() {
 <!-- ═══════════ MORE PROJECTS ═══════════ -->
 <section id="moreprojects" class="sec-pad" style="background:var(--bg);padding-top:0;padding-bottom:4rem;">
   <div class="container">
-
+ 
     <!-- Toggle button -->
     <div style="display:flex;justify-content:center;margin-bottom:0;">
       <button class="see-more-btn" id="seeMoreBtn" onclick="toggleMoreProjects()">
@@ -1624,11 +1649,11 @@ function toggleMoreProjects() {
         See More Projects
       </button>
     </div>
-
+ 
     <!-- Collapsible projects list -->
     <div class="more-projects-wrap" id="moreProjectsWrap">
       <div class="more-grid">
-
+ 
         <!-- Countries API -->
         <a href="https://jikia25.github.io/Countries-API/" target="_blank" rel="noopener noreferrer" class="mp-card">
           <div class="mp-header">
@@ -1646,7 +1671,7 @@ function toggleMoreProjects() {
             <span class="stag">JavaScript</span><span class="stag">SCSS</span><span class="stag">REST API</span><span class="stag">Dark Mode</span>
           </div>
         </a>
-
+ 
         <!-- Shopco -->
         <a href="https://github.com/Jikia25/Shopco-project" target="_blank" rel="noopener noreferrer" class="mp-card">
           <div class="mp-header">
@@ -1664,7 +1689,7 @@ function toggleMoreProjects() {
             <span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">Responsive</span>
           </div>
         </a>
-
+ 
         <!-- Guess My Number -->
         <a href="https://jikia25.github.io/guess-my-number-/" target="_blank" rel="noopener noreferrer" class="mp-card">
           <div class="mp-header">
@@ -1682,7 +1707,7 @@ function toggleMoreProjects() {
             <span class="stag">JavaScript</span><span class="stag">SCSS</span><span class="stag">DOM</span>
           </div>
         </a>
-
+ 
         <!-- To-Do List -->
         <a href="https://github.com/Jikia25/To-Do-List" target="_blank" rel="noopener noreferrer" class="mp-card">
           <div class="mp-header">
@@ -1700,13 +1725,13 @@ function toggleMoreProjects() {
             <span class="stag">JavaScript</span><span class="stag">HTML</span><span class="stag">CSS</span>
           </div>
         </a>
-
+ 
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- ═══════════ PM WORK ═══════════ -->
 <section id="pmwork" class="sec-pad">
   <div class="container">
@@ -1790,7 +1815,7 @@ function toggleMoreProjects() {
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact" class="sec-pad">
   <div class="container">
@@ -1831,21 +1856,21 @@ function toggleMoreProjects() {
           </a>
         </div>
       </div>
-      <form class="contact-form reveal d3" onsubmit="handleForm(event)">
+      <form class="contact-form reveal d3" id="contactForm">
         <div class="form-row">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Kristina" required></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Kristina" required></div>
+          <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith"></div>
         </div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
-        <div class="fg"><label>Subject</label><input type="text" placeholder="Let's work together"></div>
-        <div class="fg"><label>Message</label><textarea rows="4" placeholder="Tell me about your project or opportunity..." required></textarea></div>
-        <button type="submit" class="btn btn-fill" style="justify-content:center;" id="form-btn">Send Message</button>
-        <div id="form-msg" style="display:none;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--acc3);letter-spacing:.08em;">Message sent — I'll be in touch soon.</div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="fg"><label>Subject</label><input type="text" name="subject" placeholder="Let's work together"></div>
+        <div class="fg"><label>Message</label><textarea rows="4" name="message" placeholder="Tell me about your project or opportunity..." required></textarea></div>
+        <button type="submit" class="btn btn-fill" style="justify-content:center;" id="formBtn">Send Message</button>
+        
       </form>
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy">© 2025 Kristina Jikia — Built with intention.</div>
@@ -1855,20 +1880,20 @@ function toggleMoreProjects() {
     <a href="/cdn-cgi/l/email-protection#b0dad9dbd9d1dbc2d9c3c4d9ded181f0d7ddd1d9dc9ed3dfdd">Email</a>
   </div>
 </footer>
-
+ 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════ CANVAS STARFIELD — 10x style ═══════ */
 (function(){
   const c = document.getElementById('bg-canvas');
   const ctx = c.getContext('2d');
   let W, H, stars = [], shooters = [], dust = [];
-
+ 
   function resize(){
     W = c.width = window.innerWidth;
     H = c.height = window.innerHeight;
     buildStars();
   }
-
+ 
   function buildStars(){
     stars = [];
     dust  = [];
@@ -1903,7 +1928,7 @@ function toggleMoreProjects() {
       });
     }
   }
-
+ 
   function spawnShooter(){
     if(Math.random() > 0.006) return;
     const angle = (Math.random()*25 + 8) * Math.PI/180;
@@ -1917,7 +1942,7 @@ function toggleMoreProjects() {
       decay: Math.random()*0.02+0.012
     });
   }
-
+ 
   function drawGlow(x, y, r, a, col){
     const grd = ctx.createRadialGradient(x,y,0, x,y,r*3.5);
     grd.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},${a*0.6})`);
@@ -1928,10 +1953,10 @@ function toggleMoreProjects() {
     ctx.fillStyle = grd;
     ctx.fill();
   }
-
+ 
   function draw(){
     ctx.clearRect(0,0,W,H);
-
+ 
     // Dust layer
     dust.forEach(d=>{
       d.a += d.da;
@@ -1943,23 +1968,23 @@ function toggleMoreProjects() {
       ctx.fillStyle = `rgba(180,190,255,${d.a})`;
       ctx.fill();
     });
-
+ 
     // Stars
     stars.forEach(s=>{
       s.a += s.da;
       if(s.a > (s.glow?0.95:0.88) || s.a < (s.glow?0.3:0.08)) s.da*=-1;
       s.y += s.speed;
       if(s.y > H){ s.y=0; s.x=Math.random()*W; }
-
+ 
       // Glow halo for bright stars
       if(s.glow) drawGlow(s.x, s.y, s.r, s.a, s.col);
-
+ 
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
       ctx.fillStyle = `rgba(${s.col[0]},${s.col[1]},${s.col[2]},${s.a})`;
       ctx.fill();
     });
-
+ 
     // Shooting stars
     spawnShooter();
     shooters = shooters.filter(s=>{
@@ -1977,19 +2002,19 @@ function toggleMoreProjects() {
       ctx.stroke();
       return true;
     });
-
+ 
     requestAnimationFrame(draw);
   }
-
+ 
   window.addEventListener('resize', resize);
   resize();
   draw();
 })();
-
+ 
 /* ═══════ SCROLL REVEAL ═══════ */
 // Scroll-triggered entrance animations
 const revEls = document.querySelectorAll('.reveal');
-
+ 
 // Add animate class to elements NOT in viewport yet
 revEls.forEach(el=>{
   const r = el.getBoundingClientRect();
@@ -2004,7 +2029,7 @@ const io = new IntersectionObserver(entries=>{
   });
 },{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
 revEls.forEach(el=>io.observe(el));
-
+ 
 /* ═══════ LANG BARS ═══════ */
 const barIO = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -2017,13 +2042,129 @@ const barIO = new IntersectionObserver(entries=>{
   });
 },{threshold:0.1});
 document.querySelectorAll('.lang-section').forEach(el=>barIO.observe(el));
-
+ 
 /* ═══════ PROGRESS BAR ═══════ */
 const prog = document.getElementById('prog');
 window.addEventListener('scroll',()=>{
   const pct = window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
   prog.style.width = pct+'%';
 },{passive:true});
-
-
-/* ═══════
+ 
+/* ═══════ ACTIVE NAV ═══════ */
+const sections2 = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-menu a');
+const secIO2 = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id = e.target.id;
+      navAs.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:0.35});
+sections2.forEach(s=>secIO2.observe(s));
+ 
+/* ═══════ BURGER MENU ═══════ */
+const navToggle = document.getElementById('navtoggle');
+const mobileNav = document.getElementById('mobilenav');
+if(navToggle && mobileNav){
+  navToggle.addEventListener('click', function(){
+    const isOpen = mobileNav.classList.contains('open');
+    mobileNav.classList.toggle('open', !isOpen);
+    const spans = navToggle.querySelectorAll('span');
+    if(!isOpen){
+      spans[0].style.cssText='transform:rotate(45deg) translate(5px,5px)';
+      spans[1].style.cssText='opacity:0;transform:scaleX(0)';
+      spans[2].style.cssText='transform:rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s=>s.style.cssText='');
+    }
+  });
+}
+function closeMobileNav(){
+  if(mobileNav) mobileNav.classList.remove('open');
+  const spans = navToggle ? navToggle.querySelectorAll('span') : [];
+  spans.forEach(s=>s.style.cssText='');
+}
+ 
+/* ═══════ SMOOTH SCROLL ═══════ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const id = this.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+ 
+/* ═══════ CONTACT FORM — Formspree ═══════ */
+const contactForm = document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+ 
+    const data = new FormData(this);
+    try {
+      const res = await fetch('https://formspree.io/f/xeoqkpod', {
+        method:'POST', body: data,
+        headers:{'Accept':'application/json'}
+      });
+      if(res.ok){
+        showModal('success');
+        contactForm.reset();
+      } else {
+        showModal('error');
+      }
+    } catch(err){
+      showModal('error');
+    }
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  });
+}
+ 
+function showModal(type){
+  const modal = document.getElementById('contactModal');
+  const modalIcon = document.getElementById('modalIcon');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalMsg = document.getElementById('modalMsg');
+  if(!modal) return;
+ 
+  if(type==='success'){
+    modalIcon.innerHTML = '<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#3db87c" stroke-width="1.5"/><path d="M10 16l4.5 4.5 7.5-8" stroke="#3db87c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    modalTitle.textContent = 'Message Sent!';
+    modalMsg.textContent = 'Thank you for reaching out. I will get back to you as soon as possible.';
+  } else {
+    modalIcon.innerHTML = '<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#e05a5a" stroke-width="1.5"/><path d="M11 11l10 10M21 11l-10 10" stroke="#e05a5a" stroke-width="2" stroke-linecap="round"/></svg>';
+    modalTitle.textContent = 'Something went wrong';
+    modalMsg.textContent = 'Please try again or email me directly at jikiakristina1@gmail.com';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+ 
+function closeModal(){
+  const modal = document.getElementById('contactModal');
+  if(modal){ modal.classList.remove('open'); document.body.style.overflow=''; }
+}
+ 
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+ 
+</script>
+ 
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="c-modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="c-modal">
+    <button class="c-modal-close" onclick="closeModal()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div id="modalIcon" style="margin-bottom:1rem;"></div>
+    <h3 id="modalTitle" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:0.5rem;"></h3>
+    <p id="modalMsg" style="font-size:0.88rem;line-height:1.7;color:rgba(216,226,245,0.65);margin-bottom:1.6rem;"></p>
+    <button onclick="closeModal()" style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 2rem;background:var(--accent);color:#06080f;border:none;border-radius:2px;cursor:pointer;">Got it</button>
+  </div>
+</div>
+ 
+</body>
+</html>
