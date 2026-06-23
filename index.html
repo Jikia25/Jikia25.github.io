@@ -141,7 +141,14 @@ h2.sec-h em{font-style:italic;color:var(--muted);}
   min-height:100vh;background:var(--bg);
   position:relative;overflow:hidden;
   display:flex;align-items:center;
-  padding:calc(var(--nav)+3rem) 2rem 5rem;
+  padding:calc(var(--nav)+3rem) 0 5rem;
+}
+.hero-wrap{
+  max-width:var(--max);margin:0 auto;padding:0 2rem;
+  width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:4rem;
+  position:relative;z-index:1;
 }
 #hero::before{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -151,7 +158,7 @@ h2.sec-h em{font-style:italic;color:var(--muted);}
   content:'';position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse at 20% 80%,rgba(100,50,20,0.25) 0%,transparent 55%);
 }
-.hero-inner{position:relative;z-index:1;max-width:760px;}
+.hero-inner{}
 .hero-sup{
   font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;
   color:var(--acc);margin-bottom:1.4rem;
@@ -161,7 +168,7 @@ h2.sec-h em{font-style:italic;color:var(--muted);}
 .hero-sup::before{content:'';width:2rem;height:1px;background:var(--acc);}
 .hero-headline{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,5.5vw,4.8rem);
+  font-size:clamp(2.8rem,5vw,4.5rem);
   font-weight:600;line-height:1.08;letter-spacing:-0.025em;
   color:var(--text);margin-bottom:1.3rem;
   opacity:0;
@@ -565,6 +572,7 @@ footer{
   .nav{padding:0 1.5rem;}
   .nav-links{display:none;}.nav-pill{display:none;}
   .burger{display:flex;}
+  .hero-wrap{grid-template-columns:1fr;gap:0;}
   .about-grid{grid-template-columns:1fr;}
   .skills-grid{grid-template-columns:1fr;}
   .flip-grid{grid-template-columns:1fr;}
@@ -613,22 +621,25 @@ footer{
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
-    <p class="hero-sup">Frontend Developer &amp; Product Manager</p>
-    <h1 class="hero-headline">Building thoughtful<br/>digital products.</h1>
-    <p class="hero-sub">&ldquo;At the intersection of code and strategy &mdash;<br/>where good products are actually built.&rdquo;</p>
-    <p class="hero-loc">Based in France &nbsp;&middot;&nbsp; Available remotely</p>
-    <div class="hero-tags">
-      <span class="hero-tag">React</span>
-      <span class="hero-tag">TypeScript</span>
-      <span class="hero-tag">Strategy</span>
-      <span class="hero-tag">PWA</span>
-      <span class="hero-tag">PRD</span>
+  <div class="hero-wrap">
+    <div class="hero-inner">
+      <p class="hero-sup">Frontend Developer &amp; Product Manager</p>
+      <h1 class="hero-headline">Building thoughtful<br/>digital products.</h1>
+      <p class="hero-sub">&ldquo;At the intersection of code and strategy &mdash;<br/>where good products are actually built.&rdquo;</p>
+      <p class="hero-loc">Based in France &nbsp;&middot;&nbsp; Available remotely</p>
+      <div class="hero-tags">
+        <span class="hero-tag">React</span>
+        <span class="hero-tag">TypeScript</span>
+        <span class="hero-tag">Strategy</span>
+        <span class="hero-tag">PWA</span>
+        <span class="hero-tag">PRD</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#devwork" class="btn-fill">View Dev Work</a>
+        <a href="#pmwork" class="btn-outline">PM Case Studies</a>
+      </div>
     </div>
-    <div class="hero-btns">
-      <a href="#devwork" class="btn-fill">View Dev Work</a>
-      <a href="#pmwork" class="btn-outline">PM Case Studies</a>
-    </div>
+    <div class="hero-right" aria-hidden="true"></div>
   </div>
 </section>
 
