@@ -4,9 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Kristina Jikia — Frontend Developer & Product Manager</title>
-<meta name="description" content="Kristina Jikia — Frontend Developer and Product Manager. React, TypeScript, PWA, PRDs, User Research. Tbilisi → France."/>
-<meta property="og:title" content="Kristina Jikia — Developer & PM"/>
-<meta property="og:description" content="Frontend Developer and Product Manager building thoughtful digital products."/>
+<meta name="description" content="Kristina Jikia — Frontend Developer and Product Manager. React, TypeScript, PWA. Based in France."/>
+<meta property="og:title" content="Kristina Jikia — Dev & PM"/>
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,574 +17,588 @@ html{scroll-behavior:smooth;font-size:16px;}
 img{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
 button{border:none;background:none;cursor:pointer;font:inherit;}
+svg{display:block;}
 
 /* ── TOKENS ── */
 :root{
-  --bg:#F8F6F2;
-  --white:#FFFFFF;
-  --text:#1A1A1A;
-  --muted:#6B6B6B;
-  --light:#EBEBEA;
-  --accent:#7A9E7E;
-  --accent2:#6B8CAE;
-  --border:rgba(26,26,26,0.09);
-  --shadow:0 2px 20px rgba(0,0,0,0.055);
-  --shadow-md:0 6px 32px rgba(0,0,0,0.09);
-  --shadow-lg:0 16px 56px rgba(0,0,0,0.12);
-  --radius:12px;
+  --bg:#261408;
+  --bg2:#4A2510;
+  --bg3:#1A0D05;
+  --acc:#D4935A;
+  --acc2:#A05A28;
+  --text:#F8F0E3;
+  --muted:#A07050;
+  --border:rgba(212,147,90,0.15);
+  --border2:rgba(212,147,90,0.25);
+  --shadow:0 4px 24px rgba(0,0,0,0.35);
+  --shadow-lg:0 16px 60px rgba(0,0,0,0.5);
+  --r:12px;
   --max:1080px;
-  --nav-h:66px;
+  --nav:66px;
 }
 
 /* ── BASE ── */
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  font-weight:400;
-  line-height:1.65;
-  overflow-x:hidden;
+  background:var(--bg);color:var(--text);
+  font-family:'Inter',sans-serif;font-weight:300;
+  line-height:1.65;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
 
+/* ── PROGRESS BAR ── */
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:999;width:0%;transition:width 0.08s linear;pointer-events:none;}
+
 /* ── NAV ── */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:var(--nav-h);
-  display:flex;align-items:center;
-  padding:0 3rem;
-  transition:background 0.35s,box-shadow 0.35s;
+  position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);
+  display:flex;align-items:center;padding:0 3rem;
+  transition:background 0.35s,border-color 0.35s;
+  border-bottom:1px solid transparent;
 }
 .nav.solid{
-  background:rgba(248,246,242,0.92);
-  backdrop-filter:blur(16px);
-  box-shadow:0 1px 0 var(--border);
+  background:rgba(26,13,5,0.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom-color:var(--border);
 }
 .nav-inner{display:flex;align-items:center;width:100%;max-width:var(--max);margin:0 auto;}
 .nav-logo{
   font-family:'Playfair Display',serif;
-  font-size:1.05rem;font-weight:600;letter-spacing:-0.01em;
-  color:var(--text);
+  font-size:1.05rem;font-weight:500;letter-spacing:-0.01em;
+  color:var(--acc);
 }
-.nav-links{margin-left:auto;display:flex;gap:2.2rem;align-items:center;}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:2rem;}
 .nav-links a{
-  font-size:0.78rem;letter-spacing:0.03em;
-  color:var(--muted);transition:color 0.2s;
+  font-size:0.76rem;letter-spacing:0.04em;color:var(--muted);
+  transition:color 0.2s;
 }
-.nav-links a:hover{color:var(--text);}
-.nav-cta{
-  margin-left:1.5rem;
-  padding:0.5rem 1.3rem;
-  border:1px solid var(--text);
-  border-radius:100px;
-  font-size:0.76rem;letter-spacing:0.04em;
-  color:var(--text);
+.nav-links a:hover{color:var(--acc);}
+.nav-pill{
+  margin-left:0.5rem;
+  padding:0.45rem 1.2rem;
+  border:1px solid var(--acc);color:var(--acc);
+  border-radius:100px;font-size:0.73rem;letter-spacing:0.04em;
   transition:background 0.2s,color 0.2s;
 }
-.nav-cta:hover{background:var(--text);color:#fff;}
-.nav-burger{display:none;flex-direction:column;gap:5px;margin-left:auto;}
-.nav-burger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all 0.3s;}
+.nav-pill:hover{background:var(--acc);color:var(--bg3);}
+.burger{display:none;flex-direction:column;gap:5px;margin-left:auto;}
+.burger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all 0.3s;border-radius:2px;}
 .mob-nav{
   display:none;position:fixed;inset:0;z-index:190;
-  background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+  background:var(--bg3);flex-direction:column;align-items:center;
+  justify-content:center;gap:2.5rem;
 }
 .mob-nav.open{display:flex;}
-.mob-nav a{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:500;color:var(--text);}
-
-/* ── SCROLL PROGRESS ── */
-.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:999;width:0%;transition:width 0.08s linear;}
+.mob-nav a{font-family:'Playfair Display',serif;font-size:2rem;font-weight:500;color:var(--text);transition:color 0.2s;}
+.mob-nav a:hover{color:var(--acc);}
 
 /* ── SHARED ── */
-section{position:relative;}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 2rem;}
 .sec-pad{padding:7rem 2rem;}
+.sec-sep{height:1px;background:linear-gradient(90deg,transparent,rgba(212,147,90,0.2) 30%,rgba(212,147,90,0.2) 70%,transparent);}
 .sec-tag{
-  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.6rem;
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:0.9rem;
+  display:flex;align-items:center;gap:0.65rem;
 }
-.sec-tag::before{content:'';width:1.8rem;height:1px;background:var(--accent);}
+.sec-tag::before{content:'';width:1.8rem;height:1px;background:var(--acc);}
 h2.sec-h{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,4vw,3rem);
-  font-weight:600;line-height:1.1;letter-spacing:-0.02em;
-  margin-bottom:0.4rem;
+  font-size:clamp(2rem,4vw,2.9rem);
+  font-weight:600;line-height:1.12;letter-spacing:-0.02em;
+  color:var(--text);margin-bottom:0.4rem;
 }
 h2.sec-h em{font-style:italic;color:var(--muted);}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
-.reveal.up{opacity:1;transform:none;}
-.d1{transition-delay:0.07s}.d2{transition-delay:0.14s}.d3{transition-delay:0.21s}
-.d4{transition-delay:0.28s}.d5{transition-delay:0.35s}
+.rv{
+  opacity:0;transform:translateY(22px) scale(0.97);
+  transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.rv.in{opacity:1;transform:none;}
+.d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}
+.d4{transition-delay:0.32s}.d5{transition-delay:0.4s}
+
+/* BUTTONS */
+.btn-fill{
+  display:inline-block;
+  background:var(--acc);color:var(--bg3);
+  padding:0.85rem 2rem;border-radius:100px;
+  font-size:0.78rem;letter-spacing:0.04em;font-weight:500;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-fill:hover{background:#BF7A40;color:var(--bg3);transform:translateY(-1px);}
+.btn-outline{
+  display:inline-block;
+  border:1px solid var(--acc);color:var(--acc);
+  padding:0.85rem 2rem;border-radius:100px;
+  font-size:0.78rem;letter-spacing:0.04em;
+  transition:background 0.2s,color 0.2s,transform 0.15s;
+}
+.btn-outline:hover{background:var(--acc);color:var(--bg3);transform:translateY(-1px);}
 
 /* ── HERO ── */
 #hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:calc(var(--nav-h)+3rem) 2rem 4rem;
-  text-align:center;
+  min-height:100vh;background:var(--bg);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:calc(var(--nav)+3rem) 2rem 5rem;
 }
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 72% 50%,rgba(160,90,45,0.45) 0%,transparent 65%);
+}
+#hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 20% 80%,rgba(100,50,20,0.25) 0%,transparent 55%);
+}
+.hero-inner{position:relative;z-index:1;max-width:760px;}
 .hero-sup{
-  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.8rem;
+  font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:0.65rem;opacity:0;
+  animation:fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
 }
-.hero-name{
+.hero-sup::before{content:'';width:2rem;height:1px;background:var(--acc);}
+.hero-headline{
   font-family:'Playfair Display',serif;
-  font-size:clamp(4rem,9vw,8rem);
-  font-weight:700;line-height:0.95;letter-spacing:-0.03em;
-  margin-bottom:1.5rem;
+  font-size:clamp(2.6rem,5.5vw,4.8rem);
+  font-weight:600;line-height:1.08;letter-spacing:-0.025em;
+  color:var(--text);margin-bottom:1.3rem;
+  opacity:0;
+  animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
 }
 .hero-sub{
-  font-size:clamp(1rem,2vw,1.2rem);
-  color:var(--muted);font-weight:300;
-  display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;
-  margin-bottom:0.9rem;max-width:460px;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1rem,2vw,1.25rem);font-weight:400;
+  color:var(--muted);margin-bottom:1.2rem;line-height:1.65;
+  max-width:560px;
+  opacity:0;
+  animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.5s forwards;
 }
-.hero-sub .w{opacity:0;transform:translateY(10px);transition:opacity 0.45s,transform 0.45s;}
-.hero-sub .w.vis{opacity:1;transform:none;}
 .hero-loc{
-  font-size:0.78rem;letter-spacing:0.04em;color:var(--muted);
-  margin-bottom:2.8rem;
+  font-size:0.73rem;letter-spacing:0.08em;color:var(--muted);
+  margin-bottom:1.8rem;
+  opacity:0;
+  animation:fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.62s forwards;
 }
-.hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:5rem;}
-.btn-dark{
-  background:var(--text);color:#fff;
-  padding:0.85rem 2rem;border-radius:100px;
-  font-size:0.78rem;letter-spacing:0.04em;
-  transition:background 0.2s,transform 0.2s;display:inline-block;
+.hero-tags{
+  display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.72s forwards;
 }
-.btn-dark:hover{background:#333;transform:translateY(-1px);}
-.btn-outline{
-  border:1px solid rgba(26,26,26,0.3);color:var(--text);
-  padding:0.85rem 2rem;border-radius:100px;
-  font-size:0.78rem;letter-spacing:0.04em;
-  transition:all 0.2s;display:inline-block;
+.hero-tag{
+  padding:0.32rem 0.9rem;
+  border:1px solid rgba(212,147,90,0.4);
+  color:var(--acc);border-radius:100px;
+  font-size:0.7rem;letter-spacing:0.04em;
 }
-.btn-outline:hover{background:var(--text);color:#fff;transform:translateY(-1px);}
+.hero-btns{
+  display:flex;gap:0.75rem;flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.82s forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:none;}
+}
 
-/* LAPTOP */
-.laptop-container{width:100%;max-width:720px;margin:0 auto;position:relative;}
-.laptop-frame{
-  background:#2a2a2a;
-  border-radius:16px 16px 4px 4px;
-  padding:10px 10px 0;
-  box-shadow:0 30px 80px rgba(0,0,0,0.25),0 0 0 1px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(255,255,255,0.06);
-  position:relative;
+/* ── TICKER ── */
+.ticker{
+  background:var(--bg3);overflow:hidden;
+  padding:0.9rem 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
-.laptop-cam{
-  position:absolute;top:4px;left:50%;transform:translateX(-50%);
-  width:7px;height:7px;border-radius:50%;background:#1a1a1a;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.08);
+.ticker-track{
+  display:flex;width:max-content;
+  animation:tick 30s linear infinite;
 }
-.laptop-screen{
-  background:#fff;border-radius:8px 8px 2px 2px;
-  overflow:hidden;height:380px;position:relative;
+.ticker-segment{
+  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--acc);white-space:nowrap;
+  padding:0 2rem;flex-shrink:0;
 }
-.browser-bar{
-  height:34px;background:#F2F2F2;
-  border-bottom:1px solid #E2E2E2;
-  display:flex;align-items:center;padding:0 0.85rem;gap:0.55rem;
-  flex-shrink:0;position:relative;z-index:2;
+@keyframes tick{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
-.b-dots{display:flex;gap:5px;}
-.b-dots span{width:10px;height:10px;border-radius:50%;}
-.bd1{background:#FF5F57;}.bd2{background:#FFBD2E;}.bd3{background:#28C940;}
-.b-url{
-  flex:1;max-width:280px;height:20px;background:#E5E5E5;border-radius:4px;
-  margin-left:0.7rem;padding:0 0.6rem;
-  display:flex;align-items:center;
-  font-size:0.58rem;color:#888;font-family:'Inter',sans-serif;
-}
-.app-viewport{height:calc(380px - 34px);overflow:hidden;position:relative;}
-.app-scroller{transition:transform 0.05s linear;will-change:transform;}
-
-/* WinPass app mockup */
-.wp-app{display:flex;height:100%;min-height:500px;}
-.wp-side{
-  width:140px;flex-shrink:0;
-  background:#FAFAFA;border-right:1px solid #EBEBEB;
-  padding:1rem 0.75rem;display:flex;flex-direction:column;gap:0.3rem;
-}
-.wp-logo-s{font-size:0.7rem;font-weight:600;color:#1a1a1a;letter-spacing:-0.01em;margin-bottom:0.8rem;font-family:'Playfair Display',serif;}
-.wp-menu-item{
-  padding:0.4rem 0.55rem;border-radius:6px;font-size:0.6rem;color:#888;
-  display:flex;align-items:center;gap:0.4rem;cursor:default;
-}
-.wp-menu-item.a{background:#EEF5EF;color:#5a8c5e;}
-.wp-score{margin-top:auto;padding-top:0.8rem;border-top:1px solid #EBEBEB;}
-.wp-score-label{font-size:0.52rem;color:#aaa;margin-bottom:0.3rem;}
-.wp-score-bar{height:3px;background:#e8e8e8;border-radius:2px;overflow:hidden;margin-bottom:0.2rem;}
-.wp-score-fill{height:100%;background:#7A9E7E;border-radius:2px;}
-.wp-score-val{font-size:0.52rem;color:#7A9E7E;}
-.wp-main{flex:1;padding:0.85rem;overflow:hidden;}
-.wp-search{
-  width:100%;height:28px;background:#F5F5F5;border:1px solid #EBEBEB;
-  border-radius:6px;padding:0 0.6rem;
-  font-size:0.58rem;color:#aaa;margin-bottom:0.8rem;
-  display:flex;align-items:center;
-}
-.wp-entry{
-  display:flex;align-items:center;gap:0.55rem;
-  padding:0.55rem 0.5rem;border-radius:8px;
-  border:1px solid #F0F0F0;background:#fff;
-  margin-bottom:0.4rem;
-  box-shadow:0 1px 4px rgba(0,0,0,0.04);
-}
-.wp-icon{
-  width:28px;height:28px;border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.55rem;font-weight:600;flex-shrink:0;
-}
-.wpi1{background:#EBF0FD;color:#4285F4;}
-.wpi2{background:#F0F0F0;color:#333;}
-.wpi3{background:#E8F1F8;color:#0077B5;}
-.wpi4{background:#FFF0EB;color:#FF6635;}
-.wp-info{flex:1;min-width:0;}
-.wp-ename{font-size:0.6rem;font-weight:500;color:#1a1a1a;margin-bottom:0.05rem;}
-.wp-euser{font-size:0.52rem;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.wp-str{font-size:0.48rem;letter-spacing:0.02em;flex-shrink:0;}
-.wp-str.s{color:#7A9E7E;}.wp-str.m{color:#c4a45a;}
-.wp-section-label{font-size:0.54rem;font-weight:600;color:#bbb;letter-spacing:0.08em;text-transform:uppercase;margin:0.6rem 0 0.4rem;}
-
-.laptop-base{
-  background:linear-gradient(to bottom,#C8C8C8,#ADADAD);
-  height:20px;border-radius:0 0 8px 8px;
-  margin:0 -6px;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(0,0,0,0.18);
-}
-.laptop-notch{width:16%;height:10px;background:#B8B8B8;border-radius:0 0 6px 6px;margin-top:2px;}
 
 /* ── STATS ── */
-#stats{
-  background:var(--white);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-}
-.stats-inner{
-  max-width:var(--max);margin:0 auto;padding:3.5rem 2rem;
+#stats{background:var(--bg3);}
+.stats-row{
   display:flex;justify-content:center;gap:5rem;flex-wrap:wrap;
+  padding:5rem 2rem;max-width:var(--max);margin:0 auto;
 }
-.stat-item{text-align:center;}
-.stat-num{
+.stat-i{text-align:center;}
+.stat-n{
   font-family:'Playfair Display',serif;
-  font-size:2.8rem;font-weight:600;line-height:1;
-  color:var(--text);display:block;margin-bottom:0.25rem;
+  font-size:3.2rem;font-weight:600;color:var(--acc);
+  display:flex;align-items:baseline;justify-content:center;
+  line-height:1;margin-bottom:0.35rem;
 }
-.stat-num em{font-style:normal;color:var(--accent);}
-.stat-lbl{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.stat-n em{font-style:normal;font-size:1.8rem;}
+.stat-l{
+  font-size:0.66rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);
+}
 
 /* ── ABOUT ── */
 #about{background:var(--bg);}
 .about-grid{
-  display:grid;grid-template-columns:1fr 340px;
+  display:grid;grid-template-columns:1fr 320px;
   gap:5rem;align-items:start;margin-top:3rem;
 }
-.about-text p{
-  font-size:1.0rem;line-height:1.9;color:#444;margin-bottom:1.1rem;font-weight:300;
+.about-body p{
+  font-size:0.97rem;line-height:1.9;color:rgba(248,240,227,0.75);
+  font-weight:300;margin-bottom:1rem;
 }
-.about-text p strong{color:var(--text);font-weight:500;}
-.about-text p:last-child{margin-bottom:0;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body strong{color:var(--text);font-weight:500;}
 .about-card{
-  background:var(--white);border-radius:var(--radius);
-  padding:2rem;box-shadow:var(--shadow);
-  border:1px solid var(--border);
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.8rem;
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
 }
-.about-card-name{
-  font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
-  margin-bottom:0.15rem;
+.about-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--acc),transparent);
 }
-.about-card-role{font-size:0.72rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem;}
+.about-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:0.15rem;
+}
+.about-role{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;}
 .about-link{
   display:flex;align-items:center;gap:0.5rem;
-  font-size:0.78rem;color:var(--accent2);margin-bottom:0.65rem;
+  font-size:0.76rem;color:var(--acc);margin-bottom:0.6rem;
+  transition:color 0.2s;
 }
+.about-link:hover{color:var(--text);}
 .about-link svg{flex-shrink:0;}
-.about-mini{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:1.5rem;}
-.mini-cell{
-  background:var(--bg);border-radius:8px;padding:0.75rem;
-  border:1px solid var(--border);
+.about-mini{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:1.4rem;}
+.mini-c{
+  background:rgba(212,147,90,0.06);border:1px solid var(--border);
+  border-radius:8px;padding:0.7rem;text-align:center;
 }
 .mini-n{
-  font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;
-  color:var(--accent);display:block;line-height:1;
+  font-family:'Playfair Display',serif;font-size:1.4rem;
+  font-weight:600;color:var(--acc);display:block;line-height:1;
 }
-.mini-l{font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.15rem;}
+.mini-l{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.15rem;}
 
 /* ── SKILLS ── */
-#skills{background:var(--white);}
-.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+#skills{background:var(--bg2);}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
 .skill-col{
-  background:var(--bg);border-radius:var(--radius);
-  padding:2rem;border:1px solid var(--border);
+  background:rgba(212,147,90,0.04);
+  border:1px solid var(--border);border-radius:var(--r);padding:2rem;
 }
-.skill-col-head{
-  font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.6rem;
+.skill-head{
+  font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:0.6rem;
 }
-.skill-col-head::after{content:'';flex:1;height:1px;background:var(--border);}
-.tags{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.skill-head::after{content:'';flex:1;height:1px;background:var(--border);}
+.tags{display:flex;flex-wrap:wrap;gap:0.42rem;}
 .tag{
-  padding:0.38rem 0.8rem;background:var(--white);
-  border:1px solid var(--border);border-radius:100px;
-  font-size:0.72rem;color:var(--text);
-  transition:border-color 0.2s,background 0.2s;
+  padding:0.32rem 0.78rem;
+  border:1px solid rgba(212,147,90,0.3);
+  color:var(--acc);border-radius:100px;
+  font-size:0.68rem;letter-spacing:0.03em;
+  transition:background 0.2s,border-color 0.2s;
 }
-.tag:hover{border-color:var(--accent);background:#f0f6f1;}
-.tag.acc{border-color:rgba(122,158,126,0.35);background:#f0f6f1;color:#5a8260;}
+.tag:hover{background:rgba(212,147,90,0.1);border-color:var(--acc);}
+.tag.hi{background:rgba(212,147,90,0.1);border-color:var(--acc);}
 
 /* ── EXPERIENCE ── */
 #experience{background:var(--bg);}
-.timeline{display:flex;flex-direction:column;gap:0;margin-top:3rem;position:relative;max-width:680px;}
-.timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:0;width:1px;background:var(--border);}
-.tl-item{display:flex;gap:1.5rem;padding-bottom:2.5rem;position:relative;}
-.tl-item:last-child{padding-bottom:0;}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:3rem;max-width:680px;position:relative;}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:0;width:1px;background:var(--border);}
+.tl-i{display:flex;gap:1.6rem;padding-bottom:2.5rem;position:relative;}
+.tl-i:last-child{padding-bottom:0;}
 .tl-dot{
   width:15px;height:15px;border-radius:50%;flex-shrink:0;
-  border:2px solid var(--accent);background:var(--bg);
-  margin-top:3px;z-index:1;
-  transition:background 0.2s;
+  border:2px solid var(--acc);background:var(--bg);
+  margin-top:3px;z-index:1;transition:background 0.3s;
 }
-.tl-dot.active{background:var(--accent);}
-.tl-body{flex:1;}
-.tl-role{font-weight:600;font-size:0.95rem;margin-bottom:0.1rem;}
-.tl-company{font-size:0.78rem;color:var(--accent);letter-spacing:0.03em;margin-bottom:0.2rem;}
-.tl-date{font-size:0.7rem;color:var(--muted);margin-bottom:0.55rem;}
-.tl-desc{font-size:0.85rem;line-height:1.75;color:#555;font-weight:300;}
+.tl-dot.a{background:var(--acc);}
+.tl-role{font-weight:500;font-size:0.95rem;color:var(--text);margin-bottom:0.1rem;}
+.tl-company{font-size:0.75rem;color:var(--acc);letter-spacing:0.04em;margin-bottom:0.2rem;}
+.tl-date{font-size:0.68rem;color:var(--muted);margin-bottom:0.55rem;}
+.tl-desc{font-size:0.84rem;line-height:1.78;color:rgba(248,240,227,0.65);font-weight:300;}
 
-/* ── DEV WORK ── */
-#devwork{background:var(--white);}
-.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
-.dev-card{
-  background:var(--bg);border-radius:var(--radius);
-  border:1px solid var(--border);overflow:hidden;
-  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s;
+/* ── FLIP CARDS ── */
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.flip-card{
+  perspective:1000px;height:460px;cursor:pointer;
+  -webkit-perspective:1000px;
 }
-.dev-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
-.dev-browser{background:#F2F2F2;}
-.dev-bbar{
-  height:34px;background:#F2F2F2;border-bottom:1px solid #E2E2E2;
-  display:flex;align-items:center;padding:0 0.85rem;gap:0.55rem;
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
+  transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
 }
-.dev-dots{display:flex;gap:5px;}
-.dev-dots span{width:9px;height:9px;border-radius:50%;}
-.dd1{background:#FF5F57;opacity:0.7;}.dd2{background:#FFBD2E;opacity:0.7;}.dd3{background:#28C940;opacity:0.7;}
-.dev-url{
-  flex:1;max-width:260px;height:18px;background:#E5E5E5;border-radius:4px;
-  margin-left:0.6rem;padding:0 0.5rem;display:flex;align-items:center;
-  font-size:0.55rem;color:#999;
+.flip-card:hover .flip-inner,.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{
+  position:absolute;inset:0;border-radius:var(--r);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  overflow:hidden;
 }
-.dev-screen{
-  aspect-ratio:16/9;overflow:hidden;position:relative;
-  background:var(--white);
+.flip-front{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;
+}
+.flip-back{
+  background:#3A1D0A;
+  border:1px solid var(--border2);
+  transform:rotateY(180deg);-webkit-transform:rotateY(180deg);
+  padding:1.8rem;
+  display:flex;flex-direction:column;justify-content:space-between;
 }
 
-/* WinPass dev card screen */
-.wp-dev-screen{display:flex;height:100%;background:#fff;}
-.wp-dev-side{
-  width:100px;flex-shrink:0;background:#FAFAFA;
-  border-right:1px solid #EEE;padding:0.7rem 0.5rem;
-  display:flex;flex-direction:column;gap:0.2rem;
+/* Card back content */
+.back-badge{
+  font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:0.6rem;display:inline-block;
+  padding:0.22rem 0.65rem;border:1px solid var(--border);border-radius:100px;
 }
-.wp-dev-logo{font-size:0.6rem;font-weight:600;color:#1a1a1a;margin-bottom:0.6rem;font-family:'Playfair Display',serif;}
-.wp-dev-item{padding:0.3rem 0.4rem;border-radius:4px;font-size:0.5rem;color:#aaa;}
-.wp-dev-item.a{background:#EEF5EF;color:#5a8c5e;}
-.wp-dev-main{flex:1;padding:0.6rem;}
-.wp-dev-search{
-  height:22px;background:#F5F5F5;border:1px solid #EEE;border-radius:4px;
-  width:100%;margin-bottom:0.5rem;padding:0 0.5rem;
-  display:flex;align-items:center;font-size:0.5rem;color:#ccc;
+.back-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:600;color:var(--text);
+  margin-bottom:0.8rem;line-height:1.15;
 }
-.wp-dev-entry{
-  display:flex;align-items:center;gap:0.4rem;
-  padding:0.35rem 0.4rem;background:#fff;border:1px solid #F0F0F0;
-  border-radius:5px;margin-bottom:0.3rem;
-  box-shadow:0 1px 3px rgba(0,0,0,0.03);
+.back-desc{
+  font-size:0.82rem;line-height:1.78;
+  color:rgba(248,240,227,0.65);font-weight:300;
+  margin-bottom:1.1rem;
 }
-.wp-dev-ic{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;flex-shrink:0;}
-.wp-dev-name{font-size:0.52rem;font-weight:500;color:#1a1a1a;}
-.wp-dev-u{font-size:0.45rem;color:#bbb;}
-.wp-dev-dots{font-size:0.4rem;color:#7A9E7E;margin-left:auto;letter-spacing:0.05em;}
+.back-stack{display:flex;flex-wrap:wrap;gap:0.38rem;margin-bottom:1.4rem;}
+.back-tag{
+  font-size:0.65rem;padding:0.2rem 0.58rem;
+  border:1px solid var(--border);color:var(--muted);border-radius:100px;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.76rem;font-weight:500;
+  color:var(--bg3);background:var(--acc);
+  padding:0.7rem 1.4rem;border-radius:100px;
+  transition:background 0.2s;align-self:flex-start;
+}
+.back-link:hover{background:#BF7A40;color:var(--bg3);}
 
-/* LMS dev card screen */
-.lms-dev-screen{display:flex;height:100%;background:#fff;}
-.lms-dev-side{
-  width:100px;flex-shrink:0;background:#FAFAFA;
-  border-right:1px solid #EEE;padding:0.7rem 0.5rem;
-  display:flex;flex-direction:column;gap:0.15rem;
-}
-.lms-dev-logo{font-size:0.6rem;font-weight:600;color:#1a1a1a;margin-bottom:0.5rem;}
-.lms-dev-item{padding:0.28rem 0.4rem;border-radius:4px;font-size:0.5rem;color:#aaa;}
-.lms-dev-item.a{background:#EEF3F8;color:#5a7a96;}
-.lms-dev-main{flex:1;padding:0.6rem;}
-.lms-dev-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
-.lms-dev-greet{font-size:0.55rem;font-weight:500;color:#1a1a1a;}
-.lms-dev-date{font-size:0.45rem;color:#bbb;}
-.lms-dev-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.3rem;margin-bottom:0.5rem;}
-.lms-dev-stat{background:#F8F8F8;border:1px solid #EEE;border-radius:4px;padding:0.3rem;text-align:center;}
-.lms-dev-n{font-size:0.7rem;font-weight:600;color:#6B8CAE;display:block;}
-.lms-dev-l{font-size:0.42rem;color:#bbb;}
-.lms-dev-course{background:#F8F8F8;border:1px solid #EEE;border-radius:4px;padding:0.35rem 0.4rem;margin-bottom:0.25rem;}
-.lms-dev-cname{font-size:0.52rem;color:#1a1a1a;margin-bottom:0.2rem;}
-.lms-dev-bar{height:2px;background:#EEE;border-radius:1px;overflow:hidden;}
-.lms-dev-prog{height:100%;background:#6B8CAE;border-radius:1px;}
-
-.dev-info{padding:1.4rem 1.5rem;}
-.dev-badge{
-  font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;
-  padding:0.22rem 0.6rem;border-radius:100px;display:inline-block;
-  margin-bottom:0.5rem;
-}
-.db-live{background:#EEF5EF;color:#5a8260;}
-.db-wip{background:#EEF3F8;color:#4e6f8a;}
-.dev-title{
-  font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
-  margin-bottom:0.4rem;line-height:1.2;
-}
-.dev-desc{font-size:0.82rem;line-height:1.75;color:#555;margin-bottom:0.9rem;font-weight:300;}
-.dev-stack{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem;}
-.dev-tag{
-  padding:0.2rem 0.55rem;background:var(--white);border:1px solid var(--border);
-  border-radius:100px;font-size:0.65rem;color:var(--muted);
-}
-.dev-link{
-  font-size:0.74rem;color:var(--accent2);display:inline-flex;align-items:center;gap:0.3rem;
-  transition:gap 0.2s;font-weight:500;
-}
-.dev-link:hover{gap:0.5rem;}
-
-.github-btn{
-  display:flex;justify-content:center;margin-top:2.5rem;
-}
-.gh-link{
-  display:inline-flex;align-items:center;gap:0.55rem;
-  font-size:0.76rem;letter-spacing:0.04em;
-  color:var(--muted);border:1px solid var(--border);
-  padding:0.65rem 1.6rem;border-radius:100px;
-  transition:color 0.2s,border-color 0.2s;
-}
-.gh-link:hover{color:var(--text);border-color:rgba(26,26,26,0.25);}
-
-/* ── PM WORK ── */
-#pmwork{background:var(--bg);}
-.pm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
-.pm-card{
-  background:var(--white);border-radius:var(--radius);
-  padding:2rem;border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s;
-  position:relative;overflow:hidden;
-}
-.pm-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-}
-.pm-card.c1::before{background:linear-gradient(90deg,var(--accent),transparent);}
-.pm-card.c2::before{background:linear-gradient(90deg,var(--accent2),transparent);}
-.pm-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.pm-role{
-  font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:0.5rem;
-}
-.pm-title{
-  font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;
-  margin-bottom:0.15rem;line-height:1.15;
-}
-.pm-subtitle{font-size:0.78rem;color:var(--accent);margin-bottom:0.9rem;}
-.pm-desc{font-size:0.85rem;line-height:1.78;color:#555;font-weight:300;margin-bottom:1.3rem;}
-.pm-pill{
-  display:inline-block;font-size:0.62rem;padding:0.28rem 0.7rem;
-  border-radius:100px;border:1px solid var(--border);color:var(--muted);margin-bottom:1.2rem;
-}
-.pm-artifacts{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.pm-artifact{
-  font-size:0.68rem;padding:0.28rem 0.65rem;
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:100px;color:var(--muted);
-  transition:border-color 0.2s,color 0.2s;
-}
-.pm-artifact:hover{border-color:var(--accent);color:var(--text);}
-
-/* ── CONTACT ── */
-#contact{background:var(--white);}
-.contact-inner{max-width:680px;text-align:center;}
-.contact-inner h2{margin-bottom:0.8rem;}
-.contact-lead{
-  font-size:1.0rem;line-height:1.85;color:#555;font-weight:300;
-  margin-bottom:3rem;max-width:480px;margin-left:auto;margin-right:auto;
-}
-.contact-links{display:flex;flex-direction:column;gap:0.75rem;align-items:center;}
-.contact-link{
-  display:flex;align-items:center;gap:1rem;
-  padding:1rem 1.5rem;background:var(--bg);
-  border:1px solid var(--border);border-radius:var(--radius);
-  width:100%;max-width:360px;
-  transition:border-color 0.2s,box-shadow 0.2s;
-}
-.contact-link:hover{border-color:rgba(26,26,26,0.2);box-shadow:var(--shadow);}
-.cl-icon{
-  width:36px;height:36px;border-radius:8px;background:var(--white);
-  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+/* Front card - browser bar */
+.card-bbar{
+  height:32px;background:rgba(26,13,5,0.9);
+  border-bottom:1px solid rgba(212,147,90,0.12);
+  display:flex;align-items:center;padding:0 0.8rem;gap:0.5rem;
   flex-shrink:0;
 }
-.cl-info{flex:1;text-align:left;}
-.cl-label{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.1rem;}
-.cl-val{font-size:0.85rem;color:var(--text);}
+.cb-dots{display:flex;gap:4px;}
+.cb-dots span{width:9px;height:9px;border-radius:50%;}
+.cbd1{background:rgba(255,95,87,0.6);}.cbd2{background:rgba(255,189,46,0.6);}.cbd3{background:rgba(40,200,98,0.6);}
+.cb-url{
+  flex:1;max-width:260px;height:17px;
+  background:rgba(255,255,255,0.05);border-radius:3px;
+  padding:0 0.5rem;margin-left:0.5rem;
+  display:flex;align-items:center;
+  font-size:0.54rem;color:rgba(212,147,90,0.5);font-family:'Inter',sans-serif;
+}
+.cb-live{
+  font-size:0.54rem;color:#28C840;letter-spacing:0.05em;
+  display:flex;align-items:center;gap:3px;
+}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#28C840;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+/* WinPass light-theme screen inside card */
+.card-screen{flex:1;overflow:hidden;position:relative;}
+.wp-light{display:flex;background:#fff;height:100%;}
+.wp-ls{
+  width:95px;flex-shrink:0;background:#F7F7F7;
+  border-right:1px solid #EBEBEB;padding:0.65rem 0.5rem;
+  display:flex;flex-direction:column;gap:0.18rem;
+}
+.wp-ls-logo{font-size:0.6rem;font-weight:600;color:#1a1a1a;margin-bottom:0.55rem;font-family:'Playfair Display',serif;}
+.wp-ls-item{padding:0.28rem 0.4rem;border-radius:4px;font-size:0.5rem;color:#aaa;}
+.wp-ls-item.a{background:#FFF4EC;color:#A05A28;}
+.wp-ls-sc{margin-top:auto;padding-top:0.6rem;border-top:1px solid #F0F0F0;}
+.wp-ls-bar{height:2px;background:#EEE;border-radius:1px;overflow:hidden;margin:0.2rem 0;}
+.wp-ls-fill{height:100%;background:#7A9E7E;border-radius:1px;}
+.wp-ls-val{font-size:0.46rem;color:#7A9E7E;}
+.wp-lm{flex:1;padding:0.65rem;}
+.wp-lm-search{
+  height:22px;background:#F5F5F5;border:1px solid #EEE;border-radius:4px;
+  width:100%;margin-bottom:0.5rem;padding:0 0.5rem;
+  display:flex;align-items:center;font-size:0.48rem;color:#ccc;
+}
+.wp-lm-entry{
+  display:flex;align-items:center;gap:0.4rem;
+  padding:0.35rem 0.4rem;border-radius:5px;
+  border:1px solid #F0F0F0;background:#fff;margin-bottom:0.28rem;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04);
+}
+.wp-ic{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.44rem;font-weight:600;flex-shrink:0;}
+.wp-en{font-size:0.52rem;font-weight:500;color:#1a1a1a;}
+.wp-eu{font-size:0.44rem;color:#bbb;}
+.wp-str-g{font-size:0.42rem;color:#7A9E7E;margin-left:auto;letter-spacing:0.02em;}
+.wp-str-y{font-size:0.42rem;color:#c4a45a;margin-left:auto;}
+.card-label{
+  padding:1rem 1.2rem;background:rgba(26,13,5,0.7);
+  border-top:1px solid rgba(212,147,90,0.12);
+  display:flex;flex-direction:column;gap:0.15rem;flex-shrink:0;
+}
+.card-badge-f{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--acc);}
+.card-title-f{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--text);}
+.card-hint{font-size:0.58rem;color:var(--muted);margin-top:0.1rem;}
+
+/* LMS front - sphere visual */
+.lms-front-body{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1.5rem;
+  background:radial-gradient(ellipse at 40% 40%,rgba(160,90,45,0.18) 0%,transparent 70%);
+}
+.lms-sphere-wrap{position:relative;width:180px;height:180px;margin-bottom:1.2rem;}
+.lms-sphere-bg{
+  width:100%;height:100%;border-radius:50%;
+  background:radial-gradient(ellipse at 38% 36%,rgba(212,147,90,0.28) 0%,rgba(74,37,16,0.6) 55%,rgba(26,13,5,0.9) 100%);
+  box-shadow:0 0 50px rgba(212,147,90,0.2),inset 0 0 30px rgba(212,147,90,0.06),0 0 0 1px rgba(212,147,90,0.12);
+  position:relative;overflow:hidden;
+}
+.lms-title-f{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;font-weight:700;color:var(--text);
+  text-align:center;letter-spacing:-0.02em;margin-bottom:0.25rem;
+}
+.lms-tagline{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--acc);text-align:center;
+}
+
+/* PM cards front */
+.pm-front-body{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem;position:relative;overflow:hidden;
+}
+.pm-monogram{
+  font-family:'Playfair Display',serif;
+  font-size:7rem;font-weight:700;line-height:1;
+  color:rgba(212,147,90,0.08);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;user-select:none;letter-spacing:-0.05em;
+}
+.pm-front-icon{
+  width:60px;height:60px;border-radius:50%;
+  background:rgba(212,147,90,0.1);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.2rem;
+}
+.pm-front-title{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:700;color:var(--text);
+  text-align:center;margin-bottom:0.4rem;letter-spacing:-0.02em;
+}
+.pm-front-sub{
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);text-align:center;
+}
+.pm-front-pill{
+  margin-top:1.2rem;padding:0.3rem 0.9rem;
+  border:1px solid var(--border);border-radius:100px;
+  font-size:0.62rem;color:var(--acc);letter-spacing:0.04em;
+}
+
+/* PM back artifacts */
+.back-artifacts{display:flex;flex-wrap:wrap;gap:0.38rem;margin-bottom:1.2rem;}
+.back-artifact{
+  font-size:0.62rem;padding:0.25rem 0.6rem;
+  border:1px solid var(--border);color:var(--muted);
+  border-radius:100px;
+}
+.self-note{
+  font-size:0.68rem;color:var(--muted);
+  font-style:italic;letter-spacing:0.02em;
+}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg);}
+.contact-wrap{max-width:600px;text-align:center;margin:0 auto;}
+.contact-lead{
+  font-size:0.97rem;line-height:1.85;
+  color:rgba(248,240,227,0.65);font-weight:300;
+  margin-bottom:3rem;max-width:440px;margin-left:auto;margin-right:auto;
+}
+.c-links{display:flex;flex-direction:column;gap:0.75rem;align-items:center;}
+.c-link{
+  display:flex;align-items:center;gap:1rem;
+  padding:0.95rem 1.4rem;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);width:100%;max-width:380px;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  color:var(--text);
+}
+.c-link:hover{border-color:var(--acc);box-shadow:0 4px 20px rgba(212,147,90,0.12);}
+.c-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(212,147,90,0.12);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.c-label{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.1rem;}
+.c-val{font-size:0.83rem;color:var(--text);}
 
 /* ── FOOTER ── */
 footer{
-  background:var(--bg);border-top:1px solid var(--border);
+  background:var(--bg3);border-top:1px solid var(--border);
   padding:1.8rem 2rem;
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:1rem;
 }
-.footer-copy{font-size:0.72rem;color:var(--muted);}
-.footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:0.72rem;color:var(--muted);transition:color 0.2s;}
-.footer-links a:hover{color:var(--text);}
+.foot-copy{font-size:0.7rem;color:var(--muted);}
+.foot-links{display:flex;gap:1.5rem;}
+.foot-links a{font-size:0.7rem;color:var(--muted);transition:color 0.2s;}
+.foot-links a:hover{color:var(--acc);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:860px){
   .nav{padding:0 1.5rem;}
-  .nav-links{display:none;}
-  .nav-cta{display:none;}
-  .nav-burger{display:flex;}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
-  .skills-cols{grid-template-columns:1fr;gap:1.2rem;}
-  .dev-grid{grid-template-columns:1fr;}
-  .pm-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}.nav-pill{display:none;}
+  .burger{display:flex;}
+  .about-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .flip-grid{grid-template-columns:1fr;}
+  .flip-card{height:auto;}
+  .flip-inner{transform:none!important;height:auto;}
+  .flip-front,.flip-back{position:static;transform:none!important;backface-visibility:visible;-webkit-backface-visibility:visible;}
+  .flip-back{border-top:1px solid var(--border);border-radius:0 0 var(--r) var(--r);}
+  .flip-front{border-radius:var(--r) var(--r) 0 0;border-bottom:none;}
   .sec-pad{padding:5rem 1.5rem;}
-  .laptop-container{max-width:560px;}
-  .laptop-screen{height:300px;}
-  .app-viewport{height:calc(300px - 34px);}
-  .wp-app{height:100%;min-height:400px;}
-}
-@media(max-width:580px){
-  .hero-name{font-size:3.2rem;}
-  .stats-inner{gap:2.5rem;}
-  .stat-num{font-size:2.2rem;}
-  .contact-link{max-width:100%;}
   footer{flex-direction:column;text-align:center;}
-  .laptop-screen{height:240px;}
-  .app-viewport{height:calc(240px - 34px);}
+}
+@media(max-width:560px){
+  .stats-row{gap:2.5rem;}
+  .hero-btns{flex-direction:column;}
+  .btn-fill,.btn-outline{text-align:center;}
 }
 @media(min-width:1400px){:root{--max:1200px;}}
 </style>
 </head>
 <body>
-
 <div class="progress" id="prog"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Kristina Jikia</a>
+    <a href="#" class="nav-logo">Kristina Jikia</a>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#devwork">Dev Work</a>
       <a href="#pmwork">PM Work</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="#contact" class="nav-pill">Contact</a>
     </div>
-    <button class="nav-burger" id="burger" aria-label="Menu">
+    <button class="burger" id="burger" aria-label="Menu">
       <span></span><span></span>
     </button>
   </div>
@@ -600,118 +613,69 @@ footer{
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-sup reveal">Frontend Developer &amp; Product Manager</p>
-  <h1 class="hero-name reveal d1">Kristina<br/>Jikia</h1>
-  <p class="hero-sub">
-    <span class="w">Building</span><span class="w">digital</span><span class="w">products</span><span class="w">with</span><span class="w">purpose.</span>
-  </p>
-  <p class="hero-loc reveal d2">Tbilisi &nbsp;&rarr;&nbsp; France &nbsp;&nbsp;&middot;&nbsp;&nbsp; React &nbsp;&middot;&nbsp; TypeScript &nbsp;&middot;&nbsp; Product Strategy</p>
-  <div class="hero-btns reveal d3">
-    <a href="#devwork" class="btn-dark">View Dev Work</a>
-    <a href="#pmwork" class="btn-outline">PM Case Studies</a>
-  </div>
-
-  <!-- LAPTOP MOCKUP -->
-  <div class="laptop-container reveal d4" id="laptop-wrap">
-    <div class="laptop-frame">
-      <div class="laptop-cam"></div>
-      <div class="laptop-screen">
-        <div class="browser-bar">
-          <div class="b-dots"><span class="bd1"></span><span class="bd2"></span><span class="bd3"></span></div>
-          <div class="b-url">winpass.app &mdash; Password Vault</div>
-        </div>
-        <div class="app-viewport">
-          <div class="app-scroller" id="app-scroller">
-            <div class="wp-app">
-              <div class="wp-side">
-                <div class="wp-logo-s">WinPass</div>
-                <div class="wp-menu-item a">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1" y="3" width="8" height="5" rx="1" stroke="currentColor" stroke-width=".9"/><path d="M3 3V2.5a2 2 0 014 0V3" stroke="currentColor" stroke-width=".9"/></svg>
-                  All Items
-                </div>
-                <div class="wp-menu-item">Logins</div>
-                <div class="wp-menu-item">Secure Notes</div>
-                <div class="wp-menu-item">Cards</div>
-                <div class="wp-menu-item">Identities</div>
-                <div class="wp-score">
-                  <div class="wp-score-label">Vault Health</div>
-                  <div class="wp-score-bar"><div class="wp-score-fill" style="width:92%"></div></div>
-                  <div class="wp-score-val">92 &middot; Strong</div>
-                </div>
-              </div>
-              <div class="wp-main">
-                <div class="wp-search">&#128269; Search vault&hellip;</div>
-                <div class="wp-section-label">Recent</div>
-                <div class="wp-entry">
-                  <div class="wp-icon wpi1">G</div>
-                  <div class="wp-info"><div class="wp-ename">Google</div><div class="wp-euser">kristina@gmail.com</div></div>
-                  <div class="wp-str s">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-                <div class="wp-entry">
-                  <div class="wp-icon wpi2">GH</div>
-                  <div class="wp-info"><div class="wp-ename">GitHub</div><div class="wp-euser">Jikia25</div></div>
-                  <div class="wp-str s">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-                <div class="wp-entry">
-                  <div class="wp-icon wpi3">LI</div>
-                  <div class="wp-info"><div class="wp-ename">LinkedIn</div><div class="wp-euser">kristina-jikia</div></div>
-                  <div class="wp-str m">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-                <div class="wp-section-label">All Logins</div>
-                <div class="wp-entry">
-                  <div class="wp-icon wpi4">F</div>
-                  <div class="wp-info"><div class="wp-ename">Figma</div><div class="wp-euser">kristina@gmail.com</div></div>
-                  <div class="wp-str s">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-                <div class="wp-entry">
-                  <div class="wp-icon wpi1">V</div>
-                  <div class="wp-info"><div class="wp-ename">Vercel</div><div class="wp-euser">jikia25</div></div>
-                  <div class="wp-str s">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="hero-inner">
+    <p class="hero-sup">Frontend Developer &amp; Product Manager</p>
+    <h1 class="hero-headline">Building thoughtful<br/>digital products.</h1>
+    <p class="hero-sub">&ldquo;At the intersection of code and strategy &mdash;<br/>where good products are actually built.&rdquo;</p>
+    <p class="hero-loc">Based in France &nbsp;&middot;&nbsp; Available remotely</p>
+    <div class="hero-tags">
+      <span class="hero-tag">React</span>
+      <span class="hero-tag">TypeScript</span>
+      <span class="hero-tag">Strategy</span>
+      <span class="hero-tag">PWA</span>
+      <span class="hero-tag">PRD</span>
     </div>
-    <div class="laptop-base"><div class="laptop-notch"></div></div>
+    <div class="hero-btns">
+      <a href="#devwork" class="btn-fill">View Dev Work</a>
+      <a href="#pmwork" class="btn-outline">PM Case Studies</a>
+    </div>
   </div>
 </section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-segment">10+ Dev Projects &nbsp;&middot;&nbsp; 40+ Users Surveyed &nbsp;&middot;&nbsp; 2 Years Experience &nbsp;&middot;&nbsp; React &nbsp;&middot;&nbsp; TypeScript &nbsp;&middot;&nbsp; PWA &nbsp;&middot;&nbsp; SQL &nbsp;&middot;&nbsp; PRD Writing &nbsp;&middot;&nbsp; Agile / Scrum &nbsp;&middot;&nbsp; Next.js &nbsp;&middot;&nbsp; Supabase &nbsp;&middot;&nbsp; Figma &nbsp;&middot;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-segment">10+ Dev Projects &nbsp;&middot;&nbsp; 40+ Users Surveyed &nbsp;&middot;&nbsp; 2 Years Experience &nbsp;&middot;&nbsp; React &nbsp;&middot;&nbsp; TypeScript &nbsp;&middot;&nbsp; PWA &nbsp;&middot;&nbsp; SQL &nbsp;&middot;&nbsp; PRD Writing &nbsp;&middot;&nbsp; Agile / Scrum &nbsp;&middot;&nbsp; Next.js &nbsp;&middot;&nbsp; Supabase &nbsp;&middot;&nbsp; Figma &nbsp;&middot;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
 
 <!-- STATS -->
+<div class="sec-sep"></div>
 <section id="stats">
-  <div class="stats-inner">
-    <div class="stat-item reveal">
-      <span class="stat-num" data-target="10" data-suf="+"><span class="cnt">10</span><em>+</em></span>
-      <div class="stat-lbl">Dev Projects</div>
+  <div class="stats-row">
+    <div class="stat-i rv">
+      <div class="stat-n"><span class="cnt-n" data-t="10">10</span><em>+</em></div>
+      <div class="stat-l">Dev Projects</div>
     </div>
-    <div class="stat-item reveal d1">
-      <span class="stat-num" data-target="40" data-suf="+"><span class="cnt">40</span><em>+</em></span>
-      <div class="stat-lbl">Users Surveyed</div>
+    <div class="stat-i rv d1">
+      <div class="stat-n"><span class="cnt-n" data-t="40">40</span><em>+</em></div>
+      <div class="stat-l">Users Surveyed</div>
     </div>
-    <div class="stat-item reveal d2">
-      <span class="stat-num">2<em>yrs</em></span>
-      <div class="stat-lbl">Years Experience</div>
+    <div class="stat-i rv d2">
+      <div class="stat-n">2<em>yrs</em></div>
+      <div class="stat-l">Experience</div>
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- ABOUT -->
 <section id="about" class="sec-pad">
   <div class="wrap">
-    <div class="sec-tag reveal">About</div>
-    <h2 class="sec-h reveal d1">A developer who <em>thinks</em><br/>like a product manager.</h2>
+    <div class="sec-tag rv">About</div>
+    <h2 class="sec-h rv d1">A developer who<br/><em>thinks in products.</em></h2>
     <div class="about-grid">
-      <div class="about-text reveal d2">
-        <p>I&rsquo;m <strong>Kristina Jikia</strong>, a Frontend Developer and Product Manager based in France, originally from Tbilisi, Georgia. I bridge the gap between engineering and product &mdash; building interfaces that are both technically sound and strategically intentional.</p>
-        <p>My frontend work focuses on <strong>React, TypeScript, and PWA</strong> architecture &mdash; crafting fast, accessible, production-ready applications. I care deeply about the user experience that emerges from clean code.</p>
-        <p>On the product side, I&rsquo;ve led full product lifecycles at <strong>10x IS College</strong> and contributed to product development at <strong>Unilab</strong> &mdash; writing PRDs, conducting user research, running sprint planning, and managing cross-functional delivery from concept through launch.</p>
-        <p>I&rsquo;m at my best at the intersection of design thinking and engineering rigour &mdash; where good products are actually built.</p>
+      <div class="about-body rv d2">
+        <p>I&rsquo;m a <strong>Frontend Developer and Product Manager</strong> based in France. I build web applications from the ground up and lead products from the first user interview through to launch &mdash; two disciplines that, in my experience, make each other sharper.</p>
+        <p>On the engineering side, my work centres on <strong>React, TypeScript and PWA architecture</strong>. I care about performance, accessibility and the kind of interface that disappears &mdash; one where the user never has to think about the tool, only the task.</p>
+        <p>On the product side, I&rsquo;ve run full product lifecycles for self-funded independent projects &mdash; writing PRDs, conducting user research, managing risk registers and coordinating cross-functional delivery through Agile sprints. I also completed a <strong>frontend developer internship at Unilab</strong>, working on production React applications alongside a cross-functional team.</p>
+        <p>I&rsquo;m most engaged at the boundary between design thinking and engineering rigour &mdash; where specifications become real and assumptions become features.</p>
       </div>
-      <div class="reveal d3">
+      <div class="rv d3">
         <div class="about-card">
-          <div class="about-card-name">Kristina Jikia</div>
-          <div class="about-card-role">Dev &amp; PM &middot; Tbilisi &rarr; France</div>
+          <div class="about-name">Kristina Jikia</div>
+          <div class="about-role">Frontend Dev &amp; PM &middot; France</div>
           <a href="https://github.com/Jikia25" target="_blank" class="about-link">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1C3.69 1 1 3.69 1 7c0 2.65 1.72 4.9 4.1 5.69.3.06.41-.13.41-.29V11.2c-1.67.36-2.02-.8-2.02-.8-.27-.7-.67-.88-.67-.88-.55-.37.04-.37.04-.37.61.04.93.63.93.63.54.92 1.41.66 1.76.5.05-.39.21-.66.38-.81-1.34-.15-2.74-.67-2.74-2.98 0-.66.24-1.2.63-1.62-.06-.15-.27-.77.06-1.6 0 0 .51-.16 1.67.62a5.82 5.82 0 013.04 0c1.16-.78 1.67-.62 1.67-.62.33.83.12 1.45.06 1.6.39.42.63.96.63 1.62 0 2.32-1.41 2.83-2.75 2.98.22.19.41.55.41 1.11v1.65c0 .16.11.35.41.29C11.28 11.9 13 9.65 13 7c0-3.31-2.69-6-6-6z" fill="currentColor"/></svg>
             github.com/Jikia25
@@ -720,38 +684,36 @@ footer{
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1"/><path d="M1 4l6 4 6-4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
             jikiakristina1@gmail.com
           </a>
-          <a href="https://linkedin.com/in/kristina-jikia-ba622335a" target="_blank" class="about-link">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1"/><path d="M4 6v4M4 4.5v.01M7 10V8c0-1.1.9-2 2-2s2 .9 2 2v2M7 6v4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
-            kristina-jikia
-          </a>
           <div class="about-mini">
-            <div class="mini-cell"><span class="mini-n">10+</span><div class="mini-l">Projects</div></div>
-            <div class="mini-cell"><span class="mini-n">2+</span><div class="mini-l">Years</div></div>
-            <div class="mini-cell"><span class="mini-n">2</span><div class="mini-l">Countries</div></div>
-            <div class="mini-cell"><span class="mini-n">40+</span><div class="mini-l">Surveyed</div></div>
+            <div class="mini-c"><span class="mini-n">10+</span><div class="mini-l">Projects</div></div>
+            <div class="mini-c"><span class="mini-n">2+</span><div class="mini-l">Years</div></div>
+            <div class="mini-c"><span class="mini-n">40+</span><div class="mini-l">Surveyed</div></div>
+            <div class="mini-c"><span class="mini-n">FR</span><div class="mini-l">Remote</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- SKILLS -->
 <section id="skills" class="sec-pad">
   <div class="wrap">
-    <div class="sec-tag reveal">Skills</div>
-    <h2 class="sec-h reveal d1">What I bring<br/><em>to the table.</em></h2>
-    <div class="skills-cols">
-      <div class="skill-col reveal d2">
-        <div class="skill-col-head">Development</div>
+    <div class="sec-tag rv">Skills</div>
+    <h2 class="sec-h rv d1">What I bring<br/><em>to the table.</em></h2>
+    <div class="skills-grid">
+      <div class="skill-col rv d2">
+        <div class="skill-head">Development</div>
         <div class="tags">
-          <span class="tag acc">React</span>
-          <span class="tag acc">TypeScript</span>
+          <span class="tag hi">React</span>
+          <span class="tag hi">TypeScript</span>
           <span class="tag">JavaScript</span>
           <span class="tag">Next.js</span>
           <span class="tag">Node.js</span>
-          <span class="tag acc">Tailwind CSS</span>
+          <span class="tag hi">Tailwind CSS</span>
           <span class="tag">PWA</span>
+          <span class="tag">SQL</span>
           <span class="tag">HTML &amp; CSS</span>
           <span class="tag">REST APIs</span>
           <span class="tag">Git &amp; GitHub</span>
@@ -761,16 +723,16 @@ footer{
           <span class="tag">SCSS</span>
         </div>
       </div>
-      <div class="skill-col reveal d3">
-        <div class="skill-col-head">Product Management</div>
+      <div class="skill-col rv d3">
+        <div class="skill-head">Product Management</div>
         <div class="tags">
-          <span class="tag acc">PRD Writing</span>
-          <span class="tag acc">User Research</span>
+          <span class="tag hi">PRD Writing</span>
+          <span class="tag hi">User Research</span>
           <span class="tag">Risk Register</span>
           <span class="tag">Agile / Scrum</span>
           <span class="tag">Sprint Planning</span>
-          <span class="tag acc">User Stories</span>
-          <span class="tag">MoSCoW Prioritization</span>
+          <span class="tag hi">User Stories</span>
+          <span class="tag">MoSCoW</span>
           <span class="tag">SWOT Analysis</span>
           <span class="tag">Stakeholder Management</span>
           <span class="tag">Jira</span>
@@ -782,250 +744,329 @@ footer{
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="sec-pad" style="background:var(--white);">
+<section id="experience" class="sec-pad" style="background:var(--bg2);">
   <div class="wrap">
-    <div class="sec-tag reveal">Experience</div>
-    <h2 class="sec-h reveal d1">Where I&rsquo;ve<br/><em>worked.</em></h2>
+    <div class="sec-tag rv">Experience</div>
+    <h2 class="sec-h rv d1">Where I&rsquo;ve<br/><em>worked.</em></h2>
     <div class="timeline">
-      <div class="tl-item reveal d2">
-        <div class="tl-dot active"></div>
-        <div class="tl-body">
-          <div class="tl-role">Product Manager &amp; Frontend Developer</div>
-          <div class="tl-company">10x IS College</div>
-          <div class="tl-date">2025 &mdash; Present &middot; Tbilisi, Georgia</div>
-          <p class="tl-desc">Led the full product lifecycle of LMS Pro &mdash; a PWA-based Learning Management System serving students, lecturers and admins across four tracks (Dev, Design, PM, QA). Wrote the PRD, 16 user stories across 5 epics, conducted user research with 40+ participants, ran 3 Agile sprints and coordinated cross-functional delivery through MVP launch. Simultaneously contributed frontend development in React &amp; TypeScript.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal d3">
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-role">Frontend Developer</div>
-          <div class="tl-company">Unilab</div>
-          <div class="tl-date">2024 &mdash; 2025 &middot; Tbilisi, Georgia</div>
-          <p class="tl-desc">Developed and maintained web interfaces using React and TypeScript. Collaborated with design and backend teams to ship product features, improve UX and ensure responsive, accessible experiences across devices.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal d4">
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-role">Independent Product Manager</div>
+      <div class="tl-i rv d2">
+        <div class="tl-dot a"></div>
+        <div>
+          <div class="tl-role">Product Manager &mdash; Independent</div>
           <div class="tl-company">Self-Funded Projects</div>
-          <div class="tl-date">2024 &mdash; Present</div>
-          <p class="tl-desc">Conceived, researched and delivered two independent products &mdash; WinPass (password manager) and PLMPro (product lifecycle management platform) &mdash; from initial concept through PRD, risk register, and technical execution.</p>
+          <div class="tl-date">2024 &mdash; Present &nbsp;&middot;&nbsp; France (Remote)</div>
+          <p class="tl-desc">Conceived, researched and delivered two independent products from concept to launch: <strong style="color:var(--text);">WinPass</strong> (password manager web app) and <strong style="color:var(--text);">PLMPro</strong> (product lifecycle management platform). Full ownership of product strategy, PRD, user research (40+ participants), risk register, roadmap and cross-functional coordination through Agile sprints.</p>
+        </div>
+      </div>
+      <div class="tl-i rv d3">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Frontend Developer Intern</div>
+          <div class="tl-company">Unilab</div>
+          <div class="tl-date">2024 &mdash; 2025 &nbsp;&middot;&nbsp; Georgia</div>
+          <p class="tl-desc">Worked on production React and TypeScript applications. Collaborated with design and backend teams to ship product features, ensure responsive cross-device experiences and maintain accessible, performant UIs.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- DEV WORK -->
 <section id="devwork" class="sec-pad">
   <div class="wrap">
-    <div class="sec-tag reveal">Dev Work</div>
-    <h2 class="sec-h reveal d1">Featured<br/><em>projects.</em></h2>
-    <div class="dev-grid">
+    <div class="sec-tag rv">Dev Work</div>
+    <h2 class="sec-h rv d1">Featured<br/><em>projects.</em></h2>
+    <p class="rv d2" style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem;margin-bottom:0;">Hover a card to flip &mdash;</p>
+    <div class="flip-grid">
 
-      <!-- WinPass card -->
-      <div class="dev-card reveal d2">
-        <div class="dev-browser">
-          <div class="dev-bbar">
-            <div class="dev-dots"><span class="dd1"></span><span class="dd2"></span><span class="dd3"></span></div>
-            <div class="dev-url">winpass.app &mdash; Password Vault</div>
-          </div>
-          <div class="dev-screen">
-            <div class="wp-dev-screen">
-              <div class="wp-dev-side">
-                <div class="wp-dev-logo">WinPass</div>
-                <div class="wp-dev-item a">All Items</div>
-                <div class="wp-dev-item">Logins</div>
-                <div class="wp-dev-item">Notes</div>
-                <div class="wp-dev-item">Cards</div>
-              </div>
-              <div class="wp-dev-main">
-                <div class="wp-dev-search">&#128269; Search vault&hellip;</div>
-                <div class="wp-dev-entry">
-                  <div class="wp-dev-ic wpi1" style="background:#EBF0FD;color:#4285F4;">G</div>
-                  <div><div class="wp-dev-name">Google</div><div class="wp-dev-u">kristina@gmail.com</div></div>
-                  <div class="wp-dev-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+      <!-- WinPass -->
+      <div class="flip-card rv d2">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="card-bbar">
+              <div class="cb-dots"><span class="cbd1"></span><span class="cbd2"></span><span class="cbd3"></span></div>
+              <div class="cb-url">winepass-gbyp.vercel.app</div>
+              <div class="cb-live"><span class="live-dot"></span>Live</div>
+            </div>
+            <div class="card-screen">
+              <div class="wp-light">
+                <div class="wp-ls">
+                  <div class="wp-ls-logo">WinPass</div>
+                  <div class="wp-ls-item a">All Items</div>
+                  <div class="wp-ls-item">Logins</div>
+                  <div class="wp-ls-item">Notes</div>
+                  <div class="wp-ls-item">Cards</div>
+                  <div class="wp-ls-item">Identities</div>
+                  <div class="wp-ls-sc">
+                    <div style="font-size:0.44rem;color:#bbb;margin-bottom:0.18rem;">Vault Score</div>
+                    <div class="wp-ls-bar"><div class="wp-ls-fill" style="width:92%"></div></div>
+                    <div class="wp-ls-val">92 &middot; Strong</div>
+                  </div>
                 </div>
-                <div class="wp-dev-entry">
-                  <div class="wp-dev-ic" style="background:#F0F0F0;color:#333;font-size:0.4rem;">GH</div>
-                  <div><div class="wp-dev-name">GitHub</div><div class="wp-dev-u">Jikia25</div></div>
-                  <div class="wp-dev-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
-                </div>
-                <div class="wp-dev-entry">
-                  <div class="wp-dev-ic" style="background:#E8F1F8;color:#0077B5;">LI</div>
-                  <div><div class="wp-dev-name">LinkedIn</div><div class="wp-dev-u">kristina-jikia</div></div>
-                  <div class="wp-dev-dots" style="color:#c4a45a;">&#9679;&#9679;&#9679;&#9679;</div>
+                <div class="wp-lm">
+                  <div class="wp-lm-search">&#9679; Search vault&hellip;</div>
+                  <div style="font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:#ccc;margin-bottom:0.3rem;">Recent</div>
+                  <div class="wp-lm-entry">
+                    <div class="wp-ic" style="background:#EBF0FD;color:#4285F4;">G</div>
+                    <div><div class="wp-en">Google</div><div class="wp-eu">kristina@gmail.com</div></div>
+                    <div class="wp-str-g">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+                  </div>
+                  <div class="wp-lm-entry">
+                    <div class="wp-ic" style="background:#F0F0F0;color:#333;font-size:0.38rem;">GH</div>
+                    <div><div class="wp-en">GitHub</div><div class="wp-eu">Jikia25</div></div>
+                    <div class="wp-str-g">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+                  </div>
+                  <div class="wp-lm-entry">
+                    <div class="wp-ic" style="background:#E8F1F8;color:#0077B5;font-size:0.38rem;">LI</div>
+                    <div><div class="wp-en">LinkedIn</div><div class="wp-eu">kristina-jikia</div></div>
+                    <div class="wp-str-y">&#9679;&#9679;&#9679;&#9679;</div>
+                  </div>
+                  <div class="wp-lm-entry">
+                    <div class="wp-ic" style="background:#FFF0EB;color:#FF6635;">F</div>
+                    <div><div class="wp-en">Figma</div><div class="wp-eu">kristina@gmail.com</div></div>
+                    <div class="wp-str-g">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="card-label">
+              <div class="card-badge-f">React &middot; TypeScript &middot; Full-Stack</div>
+              <div class="card-title-f">WinPass &mdash; Password Manager</div>
+              <div class="card-hint">Hover to see details &rarr;</div>
+            </div>
           </div>
-        </div>
-        <div class="dev-info">
-          <span class="dev-badge db-live">Full-Stack &middot; Live</span>
-          <div class="dev-title">WinPass &mdash; Password Manager</div>
-          <p class="dev-desc">Secure password manager web app with encrypted vault, password strength analysis, category organisation and a clean modern interface. Built with React &amp; TypeScript.</p>
-          <div class="dev-stack">
-            <span class="dev-tag">React</span><span class="dev-tag">TypeScript</span>
-            <span class="dev-tag">Tailwind</span><span class="dev-tag">Supabase</span>
-            <span class="dev-tag">Encryption</span>
+          <div class="flip-back">
+            <div>
+              <span class="back-badge">Full-Stack &middot; Live</span>
+              <div class="back-title">WinPass &mdash; Password Manager</div>
+              <p class="back-desc">Secure password manager web app with encrypted vault, password strength analysis, category organisation and a clean, modern UI. Built with React &amp; TypeScript. Hosted live on Vercel.</p>
+              <div class="back-stack">
+                <span class="back-tag">React</span>
+                <span class="back-tag">TypeScript</span>
+                <span class="back-tag">Tailwind CSS</span>
+                <span class="back-tag">Supabase</span>
+                <span class="back-tag">PWA</span>
+              </div>
+            </div>
+            <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="back-link">
+              View on GitHub &rarr;
+            </a>
           </div>
-          <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="dev-link">
-            View on GitHub
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
-      <!-- LMS card -->
-      <div class="dev-card reveal d3">
-        <div class="dev-browser">
-          <div class="dev-bbar">
-            <div class="dev-dots"><span class="dd1"></span><span class="dd2"></span><span class="dd3"></span></div>
-            <div class="dev-url">lms.platform.ge &mdash; Dashboard</div>
-          </div>
-          <div class="dev-screen">
-            <div class="lms-dev-screen">
-              <div class="lms-dev-side">
-                <div class="lms-dev-logo">LMS Pro</div>
-                <div class="lms-dev-item a">Dashboard</div>
-                <div class="lms-dev-item">Courses</div>
-                <div class="lms-dev-item">Assignments</div>
-                <div class="lms-dev-item">Analytics</div>
-                <div class="lms-dev-item">Students</div>
-              </div>
-              <div class="lms-dev-main">
-                <div class="lms-dev-header">
-                  <span class="lms-dev-greet">Good morning, Kristina</span>
-                  <span class="lms-dev-date">Jun 2026</span>
+      <!-- LMS Platform -->
+      <div class="flip-card rv d3">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="card-bbar">
+              <div class="cb-dots"><span class="cbd1"></span><span class="cbd2"></span><span class="cbd3"></span></div>
+              <div class="cb-url">lms.platform.ge &mdash; Dashboard</div>
+              <div class="cb-live" style="color:var(--acc);"><span style="width:5px;height:5px;border-radius:50%;background:var(--acc);display:inline-block;animation:pulse 2s ease infinite;"></span>&nbsp;Dev</div>
+            </div>
+            <div class="card-screen">
+              <div class="lms-front-body">
+                <div class="lms-sphere-wrap">
+                  <div class="lms-sphere-bg">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+                      <circle cx="100" cy="100" r="78" stroke="rgba(212,147,90,0.18)" stroke-width="0.8"/>
+                      <ellipse cx="100" cy="100" rx="78" ry="26" stroke="rgba(212,147,90,0.12)" stroke-width="0.6"/>
+                      <ellipse cx="100" cy="100" rx="52" ry="78" stroke="rgba(212,147,90,0.1)" stroke-width="0.6"/>
+                      <circle cx="100" cy="22" r="3" fill="#D4935A" opacity="0.85"/>
+                      <circle cx="168" cy="78" r="2.5" fill="#D4935A" opacity="0.7"/>
+                      <circle cx="158" cy="145" r="3" fill="#D4935A" opacity="0.8"/>
+                      <circle cx="100" cy="178" r="2.5" fill="#D4935A" opacity="0.6"/>
+                      <circle cx="42" cy="145" r="3" fill="#D4935A" opacity="0.75"/>
+                      <circle cx="32" cy="78" r="2.5" fill="#D4935A" opacity="0.65"/>
+                      <circle cx="100" cy="100" r="4.5" fill="#D4935A" opacity="0.95"/>
+                      <circle cx="135" cy="65" r="1.8" fill="#D4935A" opacity="0.55"/>
+                      <circle cx="68" cy="132" r="1.8" fill="#D4935A" opacity="0.5"/>
+                      <circle cx="148" cy="110" r="1.5" fill="#D4935A" opacity="0.45"/>
+                      <circle cx="55" cy="90" r="1.5" fill="#D4935A" opacity="0.4"/>
+                      <line x1="100" y1="22" x2="168" y2="78" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="168" y1="78" x2="158" y2="145" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="158" y1="145" x2="100" y2="178" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="100" y1="178" x2="42" y2="145" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="42" y1="145" x2="32" y2="78" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="32" y1="78" x2="100" y2="22" stroke="rgba(212,147,90,0.28)" stroke-width="0.7"/>
+                      <line x1="100" y1="100" x2="100" y2="22" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="168" y2="78" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="158" y2="145" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="100" y2="178" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="42" y2="145" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="32" y2="78" stroke="rgba(212,147,90,0.18)" stroke-width="0.6"/>
+                      <line x1="100" y1="100" x2="135" y2="65" stroke="rgba(212,147,90,0.14)" stroke-width="0.5"/>
+                      <line x1="100" y1="100" x2="68" y2="132" stroke="rgba(212,147,90,0.14)" stroke-width="0.5"/>
+                      <defs><radialGradient id="sg" cx="38%" cy="36%" r="55%"><stop offset="0%" stop-color="rgba(212,147,90,0.22)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+                      <circle cx="100" cy="100" r="78" fill="url(#sg)"/>
+                    </svg>
+                  </div>
                 </div>
-                <div class="lms-dev-stats">
-                  <div class="lms-dev-stat"><span class="lms-dev-n">94%</span><span class="lms-dev-l">Submissions</span></div>
-                  <div class="lms-dev-stat"><span class="lms-dev-n">16</span><span class="lms-dev-l">Students</span></div>
-                  <div class="lms-dev-stat"><span class="lms-dev-n">3</span><span class="lms-dev-l">Pending</span></div>
-                </div>
-                <div class="lms-dev-course">
-                  <div class="lms-dev-cname">React &amp; TypeScript</div>
-                  <div class="lms-dev-bar"><div class="lms-dev-prog" style="width:78%"></div></div>
-                </div>
-                <div class="lms-dev-course">
-                  <div class="lms-dev-cname">PM Fundamentals</div>
-                  <div class="lms-dev-bar"><div class="lms-dev-prog" style="width:91%;background:#7A9E7E;"></div></div>
-                </div>
+                <div class="lms-title-f">LMS Pro</div>
+                <div class="lms-tagline">Connect &middot; Learn &middot; Grow</div>
               </div>
             </div>
+            <div class="card-label">
+              <div class="card-badge-f">Next.js &middot; TypeScript &middot; Full-Stack</div>
+              <div class="card-title-f">LMS Platform</div>
+              <div class="card-hint">Hover to see details &rarr;</div>
+            </div>
           </div>
-        </div>
-        <div class="dev-info">
-          <span class="dev-badge db-wip">Full-Stack &middot; In Development</span>
-          <div class="dev-title">LMS Platform &mdash; Learning Management System</div>
-          <p class="dev-desc">Full-stack learning management system with course management, student dashboards, assignment tracking and analytics across multiple learning tracks.</p>
-          <div class="dev-stack">
-            <span class="dev-tag">Next.js</span><span class="dev-tag">TypeScript</span>
-            <span class="dev-tag">PostgreSQL</span><span class="dev-tag">Tailwind</span>
-            <span class="dev-tag">REST API</span>
+          <div class="flip-back">
+            <div>
+              <span class="back-badge">Full-Stack &middot; In Development</span>
+              <div class="back-title">LMS Platform &mdash; Learning Management System</div>
+              <p class="back-desc">Full-stack learning management system with course management, student dashboards, assignment tracking, progress analytics and role-based access across multiple learning tracks.</p>
+              <div class="back-stack">
+                <span class="back-tag">Next.js</span>
+                <span class="back-tag">TypeScript</span>
+                <span class="back-tag">PostgreSQL</span>
+                <span class="back-tag">Tailwind CSS</span>
+                <span class="back-tag">REST API</span>
+              </div>
+            </div>
+            <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="back-link">
+              View on GitHub &rarr;
+            </a>
           </div>
-          <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="dev-link">
-            View on GitHub
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
     </div>
-    <div class="github-btn reveal d4">
-      <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="gh-link">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1C3.69 1 1 3.69 1 7c0 2.65 1.72 4.9 4.1 5.69.3.06.41-.13.41-.29V11.2c-1.67.36-2.02-.8-2.02-.8-.27-.7-.67-.88-.67-.88-.55-.37.04-.37.04-.37.61.04.93.63.93.63.54.92 1.41.66 1.76.5.05-.39.21-.66.38-.81-1.34-.15-2.74-.67-2.74-2.98 0-.66.24-1.2.63-1.62-.06-.15-.27-.77.06-1.6 0 0 .51-.16 1.67.62a5.82 5.82 0 013.04 0c1.16-.78 1.67-.62 1.67-.62.33.83.12 1.45.06 1.6.39.42.63.96.63 1.62 0 2.32-1.41 2.83-2.75 2.98.22.19.41.55.41 1.11v1.65c0 .16.11.35.41.29C11.28 11.9 13 9.65 13 7c0-3.31-2.69-6-6-6z" fill="currentColor"/></svg>
+    <div style="display:flex;justify-content:center;margin-top:2.2rem;" class="rv d4">
+      <a href="https://github.com/Jikia25" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--muted);border:1px solid var(--border);padding:0.6rem 1.5rem;border-radius:100px;transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='var(--acc)';this.style.borderColor='var(--acc)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1C3.46 1 1 3.46 1 6.5c0 2.46 1.6 4.55 3.82 5.28.28.05.38-.12.38-.27v-1c-1.56.34-1.89-.75-1.89-.75-.25-.65-.62-.82-.62-.82-.51-.35.04-.34.04-.34.57.04.87.58.87.58.5.87 1.32.62 1.64.47.05-.36.2-.62.36-.76-1.25-.14-2.56-.62-2.56-2.77 0-.61.22-1.11.58-1.5-.06-.14-.25-.71.06-1.49 0 0 .47-.15 1.55.58a5.4 5.4 0 012.82 0c1.08-.73 1.55-.58 1.55-.58.31.78.12 1.35.06 1.49.36.39.58.89.58 1.5 0 2.16-1.31 2.63-2.56 2.77.2.18.38.52.38 1.04v1.54c0 .15.1.33.38.27A5.51 5.51 0 0012 6.5C12 3.46 9.54 1 6.5 1z" fill="currentColor"/></svg>
         View more on GitHub &nbsp;&rarr;
       </a>
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- PM WORK -->
-<section id="pmwork" class="sec-pad">
+<section id="pmwork" class="sec-pad" style="background:var(--bg2);">
   <div class="wrap">
-    <div class="sec-tag reveal">PM Work</div>
-    <h2 class="sec-h reveal d1">Products I<br/><em>owned.</em></h2>
-    <div class="pm-grid">
+    <div class="sec-tag rv">PM Work</div>
+    <h2 class="sec-h rv d1">Products I<br/><em>owned.</em></h2>
+    <p class="rv d2" style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem;margin-bottom:0;">Hover a card to flip &mdash;</p>
+    <div class="flip-grid">
 
       <!-- WinPass PM -->
-      <div class="pm-card c1 reveal d2">
-        <div class="pm-role">Product Manager &middot; Self-Funded</div>
-        <div class="pm-title">WinPass</div>
-        <div class="pm-subtitle">Password Manager Web App</div>
-        <span class="pm-pill">Independent Project &middot; Live</span>
-        <p class="pm-desc">Owned the complete product strategy, PRD, and user research for the WinPass password manager. Defined the core vault architecture, security model, UX flows and go-to-market approach from zero to launch.</p>
-        <div class="pm-artifacts">
-          <span class="pm-artifact">PRD Document</span>
-          <span class="pm-artifact">User Research</span>
-          <span class="pm-artifact">Product Strategy</span>
-          <span class="pm-artifact">User Stories</span>
-          <span class="pm-artifact">Competitive Analysis</span>
-          <span class="pm-artifact">UX Flows</span>
+      <div class="flip-card rv d2">
+        <div class="flip-inner">
+          <div class="flip-front" style="background:linear-gradient(145deg,#4A2510 0%,#3A1D08 100%);">
+            <div class="pm-front-body">
+              <div class="pm-monogram">W</div>
+              <div class="pm-front-icon">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="3" y="10" width="20" height="13" rx="2.5" stroke="#D4935A" stroke-width="1.4"/><path d="M8 10V7.5a5 5 0 0110 0V10" stroke="#D4935A" stroke-width="1.4" stroke-linecap="round"/><circle cx="13" cy="16.5" r="2" stroke="#D4935A" stroke-width="1.2"/><line x1="13" y1="18.5" x2="13" y2="20.5" stroke="#D4935A" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="pm-front-title">WinPass</div>
+              <div class="pm-front-sub">Password Manager</div>
+              <div class="pm-front-pill">Product Manager</div>
+            </div>
+            <div class="card-label">
+              <div class="card-badge-f">Self-Funded &middot; Independent</div>
+              <div class="card-title-f">WinPass PM</div>
+              <div class="card-hint">Hover to see details &rarr;</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div>
+              <span class="back-badge">Product Manager &middot; Self-Funded</span>
+              <div class="back-title">WinPass</div>
+              <p class="back-desc">Full product ownership of WinPass from zero to launch. Defined the product strategy, security model and UX flows, conducted user research and wrote the complete PRD and user stories.</p>
+              <div class="back-artifacts">
+                <span class="back-artifact">PRD Document</span>
+                <span class="back-artifact">User Research</span>
+                <span class="back-artifact">Product Strategy</span>
+                <span class="back-artifact">User Stories</span>
+                <span class="back-artifact">Competitive Analysis</span>
+                <span class="back-artifact">UX Flows</span>
+              </div>
+            </div>
+            <div>
+              <div class="self-note">Independent project &mdash; self-initiated and self-funded.</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- PLMPro PM -->
-      <div class="pm-card c2 reveal d3">
-        <div class="pm-role">Product Manager &middot; Self-Funded</div>
-        <div class="pm-title">PLMPro</div>
-        <div class="pm-subtitle">Product Lifecycle Management Platform</div>
-        <span class="pm-pill">Independent Project &middot; In Development</span>
-        <p class="pm-desc">Conceived and defined a product lifecycle management platform covering lifecycle stages, risk identification, mitigation strategies and cross-team management workflows. Delivered full PRD and risk register.</p>
-        <div class="pm-artifacts">
-          <span class="pm-artifact">PRD Document</span>
-          <span class="pm-artifact">Risk Register</span>
-          <span class="pm-artifact">Stakeholder Analysis</span>
-          <span class="pm-artifact">Roadmap</span>
-          <span class="pm-artifact">User Stories</span>
+      <div class="flip-card rv d3">
+        <div class="flip-inner">
+          <div class="flip-front" style="background:linear-gradient(145deg,#3A1D08 0%,#4A2510 100%);">
+            <div class="pm-front-body">
+              <div class="pm-monogram">P</div>
+              <div class="pm-front-icon">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 7h18M4 13h12M4 19h8" stroke="#D4935A" stroke-width="1.4" stroke-linecap="round"/><circle cx="21" cy="17" r="4" stroke="#D4935A" stroke-width="1.2"/><path d="M19.5 17l1 1 2-2" stroke="#D4935A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="pm-front-title">PLMPro</div>
+              <div class="pm-front-sub">Product Lifecycle Mgmt</div>
+              <div class="pm-front-pill">Product Manager</div>
+            </div>
+            <div class="card-label">
+              <div class="card-badge-f">Self-Funded &middot; Independent</div>
+              <div class="card-title-f">PLMPro PM</div>
+              <div class="card-hint">Hover to see details &rarr;</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div>
+              <span class="back-badge">Product Manager &middot; Self-Funded</span>
+              <div class="back-title">PLMPro</div>
+              <p class="back-desc">Product lifecycle management platform covering lifecycle stages, risk identification, mitigation strategies and cross-team management workflows. Delivered full PRD and risk register from scratch.</p>
+              <div class="back-artifacts">
+                <span class="back-artifact">PRD Document</span>
+                <span class="back-artifact">Risk Register</span>
+                <span class="back-artifact">Stakeholder Analysis</span>
+                <span class="back-artifact">Roadmap</span>
+                <span class="back-artifact">User Stories</span>
+              </div>
+            </div>
+            <div>
+              <div class="self-note">Independent project &mdash; self-initiated and self-funded.</div>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+<div class="sec-sep"></div>
 
 <!-- CONTACT -->
 <section id="contact" class="sec-pad">
   <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
-    <div class="sec-tag reveal" style="justify-content:center;">Contact</div>
-    <div class="contact-inner">
-      <h2 class="sec-h reveal d1" style="text-align:center;">Let&rsquo;s work<br/><em>together.</em></h2>
-      <p class="contact-lead reveal d2">I&rsquo;m open to frontend roles, PM positions, or freelance product work. Based in France &mdash; remote-friendly.</p>
-      <div class="contact-links reveal d3">
-        <a href="mailto:jikiakristina1@gmail.com" class="contact-link">
-          <div class="cl-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="#6B6B6B" stroke-width="1.1"/><path d="M1.5 5l6.5 5 6.5-5" stroke="#6B6B6B" stroke-width="1.1" stroke-linecap="round"/></svg>
+    <div class="sec-tag rv" style="justify-content:center;">Contact</div>
+    <div class="contact-wrap">
+      <h2 class="sec-h rv d1" style="text-align:center;margin-bottom:1rem;">Let&rsquo;s work<br/><em>together.</em></h2>
+      <p class="contact-lead rv d2">I&rsquo;m open to frontend roles, PM positions, or freelance product work. Based in France &mdash; available remotely worldwide.</p>
+      <div class="c-links rv d3">
+        <a href="mailto:jikiakristina1@gmail.com" class="c-link">
+          <div class="c-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="#D4935A" stroke-width="1.1"/><path d="M1.5 5l6.5 5 6.5-5" stroke="#D4935A" stroke-width="1.1" stroke-linecap="round"/></svg>
           </div>
-          <div class="cl-info">
-            <span class="cl-label">Email</span>
-            <span class="cl-val">jikiakristina1@gmail.com</span>
-          </div>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="color:#ccc;"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><span class="c-label">Email</span><span class="c-val">jikiakristina1@gmail.com</span></div>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto;color:var(--muted);"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="contact-link">
-          <div class="cl-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.43 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.29-.75-.72-.95-.72-.95-.59-.4.04-.39.04-.39.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.96-.72-2.96-3.22 0-.71.25-1.3.67-1.75-.07-.16-.29-.83.06-1.73 0 0 .55-.18 1.8.67a6.27 6.27 0 013.28 0c1.26-.85 1.8-.67 1.8-.67.35.9.13 1.57.06 1.73.42.45.67.99.67 1.75 0 2.51-1.53 3.06-2.98 3.22.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31C12.14 13.3 14 10.87 14 8c0-3.59-2.91-6.5-6.5-6.5z" fill="#6B6B6B"/></svg>
+        <a href="https://github.com/Jikia25" target="_blank" rel="noopener" class="c-link">
+          <div class="c-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.43 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.29-.75-.72-.95-.72-.95-.59-.4.04-.39.04-.39.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.96-.72-2.96-3.22 0-.71.25-1.3.67-1.75-.07-.16-.29-.83.06-1.73 0 0 .55-.18 1.8.67a6.27 6.27 0 013.28 0c1.26-.85 1.8-.67 1.8-.67.35.9.13 1.57.06 1.73.42.45.67.99.67 1.75 0 2.51-1.53 3.06-2.98 3.22.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31A6.5 6.5 0 0014.5 8c0-3.59-2.91-6.5-6.5-6.5z" fill="#D4935A"/></svg>
           </div>
-          <div class="cl-info">
-            <span class="cl-label">GitHub</span>
-            <span class="cl-val">github.com/Jikia25</span>
-          </div>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="color:#ccc;"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><span class="c-label">GitHub</span><span class="c-val">github.com/Jikia25</span></div>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto;color:var(--muted);"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="https://linkedin.com/in/kristina-jikia-ba622335a" target="_blank" rel="noopener" class="contact-link">
-          <div class="cl-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="#6B6B6B" stroke-width="1.1"/><path d="M4.5 6.5v5M4.5 4.5v.01M7.5 11.5V9a2 2 0 014 0v2.5M7.5 6.5v5" stroke="#6B6B6B" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <a href="https://linkedin.com/in/kristina-jikia-ba622335a" target="_blank" rel="noopener" class="c-link">
+          <div class="c-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="#D4935A" stroke-width="1.1"/><path d="M4.5 6.5v5M4.5 4.5v.01M7.5 11.5V9a2 2 0 014 0v2.5M7.5 6.5v5" stroke="#D4935A" stroke-width="1.1" stroke-linecap="round"/></svg>
           </div>
-          <div class="cl-info">
-            <span class="cl-label">LinkedIn</span>
-            <span class="cl-val">kristina-jikia</span>
-          </div>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="color:#ccc;"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><span class="c-label">LinkedIn</span><span class="c-val">kristina-jikia</span></div>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto;color:var(--muted);"><path d="M2 10L10 2M10 10V2H2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
@@ -1034,8 +1075,8 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-copy">&copy; 2026 Kristina Jikia &mdash; Built with intention.</div>
-  <div class="footer-links">
+  <div class="foot-copy">&copy; 2026 Kristina Jikia &mdash; Built with intention.</div>
+  <div class="foot-links">
     <a href="https://github.com/Jikia25" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/kristina-jikia-ba622335a" target="_blank">LinkedIn</a>
     <a href="mailto:jikiakristina1@gmail.com">Email</a>
@@ -1044,89 +1085,57 @@ footer{
 
 <script>
 /* ── NAV ── */
-var nav = document.getElementById('nav');
-var burger = document.getElementById('burger');
-var mobNav = document.getElementById('mob-nav');
+var nav=document.getElementById('nav'),prog=document.getElementById('prog');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('solid',window.scrollY>50);
+  var pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  prog.style.width=pct+'%';
+},{passive:true});
 
-window.addEventListener('scroll', function(){
-  if(window.scrollY > 40) nav.classList.add('solid');
-  else nav.classList.remove('solid');
-  // progress bar
-  var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  document.getElementById('prog').style.width = pct + '%';
-}, {passive:true});
-
-burger.addEventListener('click', function(){
-  mobNav.classList.toggle('open');
+/* ── MOBILE NAV ── */
+document.getElementById('burger').addEventListener('click',function(){
+  document.getElementById('mob-nav').classList.toggle('open');
 });
-function closeMob(){ mobNav.classList.remove('open'); }
+function closeMob(){document.getElementById('mob-nav').classList.remove('open');}
 
 /* ── SCROLL REVEAL ── */
-var revEls = document.querySelectorAll('.reveal');
-var revIO = new IntersectionObserver(function(entries){
+var rvEls=document.querySelectorAll('.rv');
+var rvIO=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvIO.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+rvEls.forEach(function(el){rvIO.observe(el);});
+
+/* ── COUNT-UP ── */
+var cntIO=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
-    if(e.isIntersecting){ e.target.classList.add('up'); revIO.unobserve(e.target); }
+    if(!e.isIntersecting)return;
+    var el=e.target,target=parseInt(el.dataset.t,10);
+    var n=0,dur=900,step=16;
+    var t=setInterval(function(){
+      n+=target/(dur/step);
+      if(n>=target){el.textContent=target;clearInterval(t);return;}
+      el.textContent=Math.floor(n);
+    },step);
+    cntIO.unobserve(el);
   });
-},{threshold:0.1, rootMargin:'0px 0px -30px 0px'});
-revEls.forEach(function(el){ revIO.observe(el); });
+},{threshold:0.7});
+document.querySelectorAll('.cnt-n').forEach(function(el){cntIO.observe(el);});
 
-/* ── HERO WORD ANIMATION ── */
-var words = document.querySelectorAll('.hero-sub .w');
-setTimeout(function(){
-  words.forEach(function(w, i){
-    setTimeout(function(){ w.classList.add('vis'); }, i * 90 + 300);
-  });
-}, 200);
-
-/* ── COUNT-UP STATS ── */
-var statIO = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(!e.isIntersecting) return;
-    var el = e.target;
-    var target = parseInt(el.dataset.target, 10);
-    var suf = el.dataset.suf || '';
-    var cnt = el.querySelector('.cnt');
-    if(!cnt) return;
-    var n = 0; var dur = 1000; var step = 16;
-    var timer = setInterval(function(){
-      n += target / (dur / step);
-      if(n >= target){ cnt.textContent = target; clearInterval(timer); return; }
-      cnt.textContent = Math.floor(n);
-    }, step);
-    statIO.unobserve(el);
-  });
-},{threshold:0.6});
-document.querySelectorAll('.stat-num[data-target]').forEach(function(el){ statIO.observe(el); });
-
-/* ── LAPTOP SCROLL PARALLAX ── */
-(function(){
-  var scroller = document.getElementById('app-scroller');
-  var laptopWrap = document.getElementById('laptop-wrap');
-  if(!scroller || !laptopWrap) return;
-
-  function update(){
-    var r = laptopWrap.getBoundingClientRect();
-    var vh = window.innerHeight;
-    // progress: 0 when laptop top hits bottom of viewport, 1 when laptop bottom leaves top
-    var progress = (vh - r.top) / (vh + r.height);
-    progress = Math.max(0, Math.min(1, progress));
-    // scroll the inner content by up to 100px
-    var offset = progress * 110;
-    scroller.style.transform = 'translateY(-' + offset + 'px)';
-  }
-
-  window.addEventListener('scroll', update, {passive:true});
-  update();
-})();
-
-/* ── SMOOTH NAV LINKS ── */
+/* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    var target = document.querySelector(a.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      target.scrollIntoView({behavior:'smooth'});
-    }
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+/* ── FLIP CARDS: tap support on mobile ── */
+document.querySelectorAll('.flip-card').forEach(function(card){
+  var inner=card.querySelector('.flip-inner');
+  if(!inner)return;
+  card.addEventListener('click',function(){
+    if(window.innerWidth<=860)return; /* on mobile, cards are stacked - no flip needed */
+    card.classList.toggle('flipped');
   });
 });
 </script>
