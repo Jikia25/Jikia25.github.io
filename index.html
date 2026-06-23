@@ -209,6 +209,89 @@ h2.sec-h em{font-style:italic;color:var(--muted);}
   to{opacity:1;transform:none;}
 }
 
+/* ── LAPTOP MOCKUP ── */
+.hero-right{display:flex;align-items:center;justify-content:center;}
+.laptop{width:100%;max-width:460px;position:relative;opacity:0;animation:fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.5s forwards;}
+.laptop-body{
+  background:#140903;border-radius:12px 12px 0 0;
+  padding:10px 10px 0;
+  border:1.5px solid rgba(212,147,90,0.18);
+  box-shadow:0 30px 80px rgba(0,0,0,0.7),0 0 100px rgba(160,90,45,0.12),inset 0 1px 0 rgba(212,147,90,0.08);
+}
+.laptop-cam{width:6px;height:6px;border-radius:50%;background:rgba(212,147,90,0.2);margin:0 auto 8px;box-shadow:0 0 0 1px rgba(212,147,90,0.08);}
+.laptop-screen{background:var(--bg3);border-radius:6px;overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column;}
+.laptop-hinge{height:3px;background:linear-gradient(180deg,#0d0603,#1a0c05);}
+.laptop-base{
+  height:22px;background:linear-gradient(180deg,#1c0d06 0%,#120804 100%);
+  border-radius:0 0 10px 10px;
+  border:1.5px solid rgba(212,147,90,0.12);border-top:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.laptop-trackpad{width:46px;height:6px;border-radius:3px;background:rgba(212,147,90,0.06);border:1px solid rgba(212,147,90,0.08);}
+.laptop-foot{height:5px;background:linear-gradient(180deg,rgba(0,0,0,0.35),transparent);margin:0 18px;border-radius:0 0 40% 40%;}
+
+/* Screen internals */
+.ls-bar{
+  height:26px;background:rgba(15,8,3,0.95);flex-shrink:0;
+  border-bottom:1px solid rgba(212,147,90,0.1);
+  display:flex;align-items:center;padding:0 8px;gap:5px;
+}
+.ls-dots{display:flex;gap:3px;}
+.ls-dots span{width:7px;height:7px;border-radius:50%;}
+.ls-d1{background:rgba(255,95,87,0.55);}.ls-d2{background:rgba(255,189,46,0.55);}.ls-d3{background:rgba(40,200,98,0.55);}
+.ls-url{
+  font-size:0.48rem;color:rgba(212,147,90,0.4);letter-spacing:0.04em;
+  flex:1;text-align:center;padding:2px 6px;
+  background:rgba(255,255,255,0.03);border-radius:2px;max-width:210px;margin:0 auto;
+}
+.ls-body{flex:1;display:flex;align-items:center;justify-content:center;padding:8px;overflow:hidden;}
+
+/* Experience card */
+.ls-card{
+  background:#2C1408;border:1px solid rgba(212,147,90,0.22);
+  border-radius:7px;padding:0.7rem;width:100%;position:relative;
+  opacity:0;transform:translateY(20px);
+  animation:cardIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s forwards;
+}
+.ls-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,var(--acc),rgba(212,147,90,0.2));border-radius:7px 7px 0 0;}
+.ls-prog-wrap{height:2px;background:rgba(212,147,90,0.1);border-radius:1px;margin-bottom:0.6rem;overflow:hidden;}
+.ls-prog{height:100%;width:0%;background:linear-gradient(90deg,#D4935A,#BF7A40);border-radius:1px;}
+.ls-badge{
+  font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--acc);display:inline-block;
+  border:1px solid rgba(212,147,90,0.3);border-radius:100px;
+  padding:0.12rem 0.45rem;margin-bottom:0.32rem;
+}
+.ls-company{font-family:'Playfair Display',serif;font-size:0.7rem;font-weight:600;color:var(--text);margin-bottom:0.12rem;line-height:1.2;}
+.ls-date{font-size:0.47rem;color:var(--muted);margin-bottom:0.45rem;letter-spacing:0.04em;}
+.ls-desc{font-size:0.53rem;line-height:1.62;color:rgba(248,240,227,0.58);margin-bottom:0.5rem;}
+.ls-cnt{color:var(--acc);font-weight:500;}
+.ls-cursor{
+  display:inline-block;width:1px;height:0.72em;
+  background:var(--acc);vertical-align:middle;margin-left:1px;
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.ls-artifacts{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:0.42rem;}
+.ls-art{
+  font-size:0.45rem;letter-spacing:0.04em;
+  padding:0.1rem 0.38rem;
+  border:1px solid rgba(212,147,90,0.2);color:var(--muted);border-radius:100px;
+  opacity:0;transform:translateY(4px);
+  animation:tagIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.ls-a1{animation-delay:1.1s}.ls-a2{animation-delay:1.22s}.ls-a3{animation-delay:1.34s}.ls-a4{animation-delay:1.46s}
+@keyframes tagIn{to{opacity:1;transform:none;}}
+@keyframes cardIn{to{opacity:1;transform:none;}}
+.ls-pills{display:flex;gap:4px;}
+.ls-pill{
+  font-size:0.47rem;padding:0.18rem 0.5rem;
+  background:rgba(212,147,90,0.1);border:1px solid rgba(212,147,90,0.28);
+  color:var(--acc);border-radius:100px;letter-spacing:0.02em;cursor:pointer;
+  transition:background 0.2s;
+}
+.ls-pill:hover{background:rgba(212,147,90,0.2);}
+
 /* ── TICKER ── */
 .ticker{
   background:var(--bg3);overflow:hidden;
@@ -573,6 +656,7 @@ footer{
   .nav-links{display:none;}.nav-pill{display:none;}
   .burger{display:flex;}
   .hero-wrap{grid-template-columns:1fr;gap:0;}
+  .hero-right{display:none;}
   .about-grid{grid-template-columns:1fr;}
   .skills-grid{grid-template-columns:1fr;}
   .flip-grid{grid-template-columns:1fr;}
@@ -639,7 +723,43 @@ footer{
         <a href="#pmwork" class="btn-outline">PM Case Studies</a>
       </div>
     </div>
-    <div class="hero-right" aria-hidden="true"></div>
+    <div class="hero-right">
+      <div class="laptop">
+        <div class="laptop-body">
+          <div class="laptop-cam"></div>
+          <div class="laptop-screen">
+            <!-- browser bar -->
+            <div class="ls-bar">
+              <div class="ls-dots"><span class="ls-d1"></span><span class="ls-d2"></span><span class="ls-d3"></span></div>
+              <div class="ls-url">kristina.pm &mdash; Case Studies</div>
+            </div>
+            <!-- card -->
+            <div class="ls-body">
+              <div class="ls-card">
+                <div class="ls-prog-wrap"><div class="ls-prog" id="ls-prog"></div></div>
+                <div class="ls-badge">Product Manager &mdash; Independent</div>
+                <div class="ls-company">Self-Funded Projects</div>
+                <div class="ls-date">2025 &mdash; Present &nbsp;&middot;&nbsp; France (Remote)</div>
+                <p class="ls-desc">Conceived, researched and delivered two independent products from concept to launch: WinPass (password manager web app) and PLMPro (product lifecycle management platform). Full ownership of product strategy, PRD, user research (<span class="ls-cnt" id="ls-cnt">40</span>+ participants), risk register, roadmap and cross-functional coordination through Agile sprints.<span class="ls-cursor"></span></p>
+                <div class="ls-artifacts">
+                  <span class="ls-art ls-a1">PRD</span>
+                  <span class="ls-art ls-a2">User Research</span>
+                  <span class="ls-art ls-a3">Risk Register</span>
+                  <span class="ls-art ls-a4">Roadmap</span>
+                </div>
+                <div class="ls-pills">
+                  <span class="ls-pill">WinPass &#x2197;</span>
+                  <span class="ls-pill">PLMPro &#x2197;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-hinge"></div>
+        </div>
+        <div class="laptop-base"><div class="laptop-trackpad"></div></div>
+        <div class="laptop-foot"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1139,6 +1259,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
   });
 });
+
+/* ── LAPTOP: progress bar + count-up ── */
+(function(){
+  var started=false;
+  function runLaptop(){
+    if(started)return;started=true;
+    /* progress bar */
+    var p=document.getElementById('ls-prog');
+    if(p){setTimeout(function(){p.style.transition='width 1.3s cubic-bezier(0.4,0,0.2,1)';p.style.width='75%';},1000);}
+    /* count-up 0→40 */
+    var el=document.getElementById('ls-cnt');
+    if(el){
+      el.textContent='0';
+      setTimeout(function(){
+        var n=0,target=40,dur=700,step=16;
+        var t=setInterval(function(){
+          n+=target/(dur/step);
+          if(n>=target){el.textContent=target;clearInterval(t);}
+          else{el.textContent=Math.floor(n);}
+        },step);
+      },1000);
+    }
+  }
+  /* trigger on page load (card animates in at 0.6s) */
+  window.addEventListener('load',function(){setTimeout(runLaptop,100);});
+})();
 
 /* ── FLIP CARDS: tap support on mobile ── */
 document.querySelectorAll('.flip-card').forEach(function(card){
