@@ -670,6 +670,138 @@ footer{
   .btn-fill,.btn-outline{text-align:center;}
 }
 @media(min-width:1400px){:root{--max:1200px;}}
+/* ── CODE WINDOW ── */
+.code-window {
+  background: #0D1117;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(212,147,90,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.cw-bar {
+  background: #161B22;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cw-dots { display: flex; gap: 5px; }
+.cw-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.cwd1{background:#FF5F57} .cwd2{background:#FEBC2E} .cwd3{background:#28C840}
+.cw-file {
+  font-size: 0.7rem;
+  color: #8B949E;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  margin-left: 0.5rem;
+}
+.cw-body {
+  padding: 1.2rem 1.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+.cw-line {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cw-line.typed { opacity: 1; transform: none; }
+.cw-lnum { color: #3D4450; margin-right: 1.5rem; user-select: none; font-size: 0.72rem; }
+.cw-purple{color:#c9b1ff} .cw-blue{color:#79c0ff} .cw-green{color:#a5d6a7}
+.cw-yellow{color:#e3b341} .cw-white{color:#e6edf3} .cw-teal{color:#39d353}
+.cw-orange{color:#ffa657}
+.cw-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background: #D4935A;
+  animation: cwblink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+@keyframes cwblink { 0%,100%{opacity:1} 50%{opacity:0} }
+/* ── MIRO CANVAS ── */
+.miro-canvas {
+  background: #1A0D05;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(212,147,90,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.miro-bar {
+  background: #261408;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(212,147,90,0.1);
+}
+.miro-dots { display: flex; gap: 5px; }
+.miro-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.md1{background:#FF5F57;opacity:0.7} .md2{background:#FEBC2E;opacity:0.7} .md3{background:#28C840;opacity:0.7}
+.miro-title { font-size: 0.72rem; color: #A07050; margin-left: 0.5rem; flex: 1; }
+.miro-live { font-size: 0.65rem; color: #4ade80; display: flex; align-items: center; gap: 0.3rem; }
+.miro-pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+  animation: pulse 2s ease infinite;
+}
+.miro-board {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  cursor: grab;
+}
+.miro-board:active { cursor: grabbing; }
+.miro-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.miro-conn {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.miro-conn.visible { opacity: 1; }
+.msticky {
+  position: absolute;
+  width: 150px;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  opacity: 0;
+  transform: translateY(15px) rotate(var(--r, 0deg));
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+}
+.msticky.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--r, 0deg));
+}
+.ms-caramel { background: #D4935A; }
+.ms-caramel .ms-label { color: #4A1A00; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.ms-caramel .ms-text { color: #2C0D00; font-size: 0.68rem; line-height: 1.4; }
+.ms-dark { background: #3D1E0A; border: 1px solid rgba(212,147,90,0.3); }
+.ms-dark .ms-label { color: #D4935A; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.ms-dark .ms-text { color: #F8F0E3; font-size: 0.68rem; line-height: 1.4; }
+.ms-outline { background: #261408; border: 1px solid rgba(248,240,227,0.12); }
+.ms-outline .ms-label { color: #A07050; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.ms-outline .ms-text { color: #F8F0E3; font-size: 0.68rem; line-height: 1.4; }
+.miro-col {
+  position: absolute;
+  bottom: 8px;
+  width: 220px;
+}
+.miro-col-head {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(160,112,80,0.5);
+  padding: 0 4px;
+}
 </style>
 </head>
 <body>
@@ -924,6 +1056,24 @@ footer{
     <div class="sec-tag rv">Dev Work</div>
     <h2 class="sec-h rv d1">Featured<br/><em>projects.</em></h2>
     <p class="rv d2" style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem;margin-bottom:0;">Hover a card to flip &mdash;</p>
+    <div class="code-window" id="codeWin">
+      <div class="cw-bar">
+        <div class="cw-dots"><span class="cwd1"></span><span class="cwd2"></span><span class="cwd3"></span></div>
+        <div class="cw-file">kristina.tsx</div>
+      </div>
+      <div class="cw-body">
+        <div class="cw-line"><span class="cw-lnum">1</span><span class="cw-purple">const</span> <span class="cw-blue">developer</span> <span class="cw-white">= {</span></div>
+        <div class="cw-line"><span class="cw-lnum">2</span>&nbsp;&nbsp;<span class="cw-green">name</span><span class="cw-white">:</span> <span class="cw-yellow">"Kristina Jikia"</span><span class="cw-white">,</span></div>
+        <div class="cw-line"><span class="cw-lnum">3</span>&nbsp;&nbsp;<span class="cw-green">stack</span><span class="cw-white">:</span> <span class="cw-white">[</span><span class="cw-yellow">"React"</span><span class="cw-white">,</span> <span class="cw-yellow">"TypeScript"</span><span class="cw-white">,</span> <span class="cw-yellow">"Next.js"</span><span class="cw-white">],</span></div>
+        <div class="cw-line"><span class="cw-lnum">4</span>&nbsp;&nbsp;<span class="cw-green">based</span><span class="cw-white">:</span> <span class="cw-yellow">"France"</span><span class="cw-white">,</span></div>
+        <div class="cw-line"><span class="cw-lnum">5</span>&nbsp;&nbsp;<span class="cw-green">passion</span><span class="cw-white">:</span> <span class="cw-yellow">"Building products that matter"</span></div>
+        <div class="cw-line"><span class="cw-lnum">6</span><span class="cw-white">}</span></div>
+        <div class="cw-line"><span class="cw-lnum">7</span></div>
+        <div class="cw-line"><span class="cw-lnum">8</span><span class="cw-purple">function</span> <span class="cw-blue">ship</span><span class="cw-white">(</span><span class="cw-orange">idea</span><span class="cw-white">:</span> <span class="cw-teal">string</span><span class="cw-white">) {</span></div>
+        <div class="cw-line"><span class="cw-lnum">9</span>&nbsp;&nbsp;<span class="cw-purple">return</span> <span class="cw-blue">developer</span><span class="cw-white">.</span><span class="cw-blue">build</span><span class="cw-white">(</span><span class="cw-orange">idea</span><span class="cw-white">).</span><span class="cw-blue">ship</span><span class="cw-white">()</span></div>
+        <div class="cw-line"><span class="cw-lnum">10</span><span class="cw-white">}</span><span class="cw-cursor"></span></div>
+      </div>
+    </div>
     <div class="flip-grid">
 
       <!-- WinPass -->
@@ -1096,6 +1246,63 @@ footer{
     <div class="sec-tag rv">PM Work</div>
     <h2 class="sec-h rv d1">Products I<br/><em>owned.</em></h2>
     <p class="rv d2" style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem;margin-bottom:0;">Hover a card to flip &mdash;</p>
+    <div class="miro-canvas" id="miroCanvas">
+      <div class="miro-bar">
+        <div class="miro-dots"><span class="md1"></span><span class="md2"></span><span class="md3"></span></div>
+        <div class="miro-title">WinPass — Product Board</div>
+        <div class="miro-live"><span class="miro-pulse"></span>Live</div>
+      </div>
+      <div class="miro-board">
+        <!-- Connection lines SVG -->
+        <svg class="miro-svg" viewBox="0 0 900 280" preserveAspectRatio="none">
+          <line class="miro-conn" x1="160" y1="80" x2="280" y2="60" stroke="rgba(212,147,90,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line class="miro-conn" x1="160" y1="80" x2="270" y2="150" stroke="rgba(212,147,90,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line class="miro-conn" x1="430" y1="60" x2="560" y2="80" stroke="rgba(248,240,227,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line class="miro-conn" x1="430" y1="150" x2="555" y2="170" stroke="rgba(248,240,227,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line class="miro-conn" x1="700" y1="80" x2="780" y2="140" stroke="rgba(212,147,90,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+        </svg>
+
+        <!-- Sticky notes -->
+        <div class="msticky ms-caramel" style="left:20px;top:20px;transform:rotate(-2deg)">
+          <div class="ms-label">Discovery</div>
+          <div class="ms-text">40+ user interviews conducted</div>
+        </div>
+        <div class="msticky ms-dark" style="left:280px;top:10px;transform:rotate(1deg)">
+          <div class="ms-label">PRD</div>
+          <div class="ms-text">Core vault features defined</div>
+        </div>
+        <div class="msticky ms-outline" style="left:270px;top:120px;transform:rotate(-1deg)">
+          <div class="ms-label">Risk Register</div>
+          <div class="ms-text">Security threats mapped</div>
+        </div>
+        <div class="msticky ms-caramel" style="left:560px;top:20px;transform:rotate(2deg)">
+          <div class="ms-label">Sprint 1</div>
+          <div class="ms-text">Auth + Vault MVP ✓</div>
+        </div>
+        <div class="msticky ms-outline" style="left:555px;top:140px;transform:rotate(-2deg)">
+          <div class="ms-label">Sprint 2</div>
+          <div class="ms-text">Password strength + export</div>
+        </div>
+        <div class="msticky ms-dark" style="left:790px;top:60px;transform:rotate(1deg)">
+          <div class="ms-label">Launch</div>
+          <div class="ms-text">WinPass live 🚀</div>
+        </div>
+
+        <!-- Kanban columns hint -->
+        <div class="miro-col" style="left:18px;">
+          <div class="miro-col-head">Research</div>
+        </div>
+        <div class="miro-col" style="left:258px;">
+          <div class="miro-col-head">Define</div>
+        </div>
+        <div class="miro-col" style="left:548px;">
+          <div class="miro-col-head">Build</div>
+        </div>
+        <div class="miro-col" style="left:778px;">
+          <div class="miro-col-head">Ship</div>
+        </div>
+      </div>
+    </div>
     <div class="flip-grid">
 
       <!-- WinPass PM -->
@@ -1301,6 +1508,38 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     sec.style.setProperty('--my',my);
   });
 })();
+
+/* ── CODE WINDOW: type lines on scroll ── */
+var codeIO = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var lines = e.target.querySelectorAll('.cw-line');
+    lines.forEach(function(line, i){
+      setTimeout(function(){ line.classList.add('typed'); }, i * 120);
+    });
+    codeIO.unobserve(e.target);
+  });
+},{threshold:0.3});
+var codeWin = document.getElementById('codeWin');
+if(codeWin) codeIO.observe(codeWin);
+
+/* ── MIRO CANVAS: animate stickies and connections on scroll ── */
+var miroIO = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var stickies = e.target.querySelectorAll('.msticky');
+    var conns = e.target.querySelectorAll('.miro-conn');
+    stickies.forEach(function(s, i){
+      setTimeout(function(){ s.classList.add('visible'); }, i * 150 + 200);
+    });
+    conns.forEach(function(c, i){
+      setTimeout(function(){ c.classList.add('visible'); }, i * 100 + 600);
+    });
+    miroIO.unobserve(e.target);
+  });
+},{threshold:0.2});
+var miroCanvas = document.getElementById('miroCanvas');
+if(miroCanvas) miroIO.observe(miroCanvas);
 
 /* ── FLIP CARDS: tap support on mobile ── */
 document.querySelectorAll('.flip-card').forEach(function(card){
